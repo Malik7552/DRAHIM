@@ -253,16 +253,79 @@ const fallbackImages={
 "Gaming":["photo-1542751371-adc38448a05e","photo-1593305841991-05c297ba4575","photo-1493711662062-fa541adb3fc8"]
 };
 function hash(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h)}
-function imageFor(title,category){
- const t=title.toLowerCase();
- const rule=pictureRules.find(r=>r[0].test(t));
- let id=rule&&rule[1]!=="photo- haircare"?rule[1]:null;
- if(!id){
-  const pool=fallbackImages[category]||fallbackImages.Electronics;
-  id=pool[hash(title)%pool.length];
- }
- return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=700&q=80`;
+
+function imageFor(title, category) {
+  const t = title.toLowerCase();
+
+  const imageSets = [
+    [/gaming mouse|mouse/, [
+      "photo-1527814050087-3793815479db",
+      "photo-1615663245857-ac93bb7c39e7",
+      "photo-1613141412501-9012977f1969"
+    ]],
+    [/keyboard/, [
+      "photo-1587829741301-dc798b83add3",
+      "photo-1595225476474-87563907a212",
+      "photo-1511467687858-23d96c32e4ae"
+    ]],
+    [/headphone|headset|earbud/, [
+      "photo-1505740420928-5e560c06d30e",
+      "photo-1546435770-a3e426bf472b",
+      "photo-1484704849700-f032a568e944"
+    ]],
+    [/controller|gamepad/, [
+      "photo-1592840496694-26d035b52b48",
+      "photo-1606144042614-b2417e99c4e3",
+      "photo-1593305841991-05c297ba4575"
+    ]],
+    [/lipstick|lip gloss/, [
+      "photo-1586495777744-4413f21062fa",
+      "photo-1596462502278-27bfdc403348",
+      "photo-1529139574466-a303027c1d8b"
+    ]],
+    [/makeup|eyeshadow|mascara|foundation|blush|concealer/, [
+      "photo-1522335789203-aabd1fc54bc9",
+      "photo-1512496015851-a90fb38ba796",
+      "photo-1596462502278-27bfdc403348"
+    ]],
+    [/serum|skincare|moisturiser|cleanser|sunscreen/, [
+      "photo-1608248543803-ba4f8c70ae0b",
+      "photo-1556229010-6c3f2c9ca5f8",
+      "photo-1571781926291-c477ebfd024b"
+    ]],
+    [/laptop/, [
+      "photo-1496181133206-80ce9b88a853",
+      "photo-1517336714731-489689fd1ca8",
+      "photo-1588872657578-7efd1f1555ed"
+    ]],
+    [/phone|smartphone|iphone|android/, [
+      "photo-1511707171634-5f897ff02aa9",
+      "photo-1598327105666-5b89351aff97",
+      "photo-1512499617640-c74ae3a79d37"
+    ]],
+    [/shoe|sneaker|trainer/, [
+      "photo-1542291026-7eec264c27ff",
+      "photo-1495555961986-6d4c1ecb7be3",
+      "photo-1552346154-21d32810aba3"
+    ]]
+  ];
+
+  const match = imageSets.find(([pattern]) => pattern.test(t));
+
+  if (match) {
+    const images = match[1];
+    return "https://images.unsplash.com/" +
+      images[hash(t) % images.length] +
+      "?auto=format&fit=crop&w=700&q=80";
+  }
+
+  const pool = fallbackImages[category] || fallbackImages.Electronics;
+  const id = pool[hash(t) % pool.length];
+
+  return "https://images.unsplash.com/" + id +
+    "?auto=format&fit=crop&w=700&q=80";
 }
+
 const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const money=n=>"AED "+Number(n).toLocaleString("en-AE",{maximumFractionDigits:0});
 function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}}
