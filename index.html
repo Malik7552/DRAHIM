@@ -3,463 +3,720 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071810">
-<title>Drahim UAE — Mega Deals</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082f25">
+<title>Drahim UAE — Discover Better Deals</title>
 <style>
-:root{--bg:#071810;--panel:#10281d;--panel2:#183728;--text:#f2fff5;--muted:#a9beaf;--green:#75f0a8;--border:#294c37}
-body.light{--bg:#f2f8f3;--panel:#fff;--panel2:#e5f2e8;--text:#11251a;--muted:#5d7163;--green:#087b43;--border:#d0e2d5}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif}
-button,input,select,textarea{font:inherit}button{cursor:pointer}
-header{padding:15px 4%;display:flex;gap:12px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--border)}
-.logo{font-size:26px;font-weight:900;color:var(--green)}.logo span{color:var(--text)}
-.actions{display:flex;gap:7px;flex-wrap:wrap;margin-left:auto}
-.btn{padding:10px 13px;border-radius:10px;background:var(--panel2);border:1px solid var(--border);color:var(--text)}
-.primary{background:var(--green);color:#082014;border:0;font-weight:bold}
-.hero{padding:42px 5%;background:radial-gradient(ellipse at top right,#205538,transparent 65%)}
-.hero h1{font-size:clamp(35px,5vw,60px);margin:10px 0;letter-spacing:-2px}.hero em{font-style:normal;color:var(--green)}
-.hero p{max-width:700px;line-height:1.6;color:var(--muted)}
-main{max-width:1700px;margin:auto;padding:24px 4%}
-.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
-input,select,textarea{min-width:0;width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--panel);color:var(--text)}
-.categories{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.chip{border:1px solid var(--border);border-radius:25px;background:var(--panel);color:var(--text);padding:9px 13px}
-.chip.active{background:var(--green);color:#082014}
-.heading{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:25px 0 15px}
-.heading h2{margin:0;font-size:23px}.muted{color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:15px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
-.photo{height:190px;background:var(--panel2);position:relative}
+:root {
+  --bg:#f5f7f4;--surface:#fff;--text:#18231d;--muted:#748078;
+  --green:#08734c;--green2:#0a5138;--line:#e0e8e1;
+  --shadow:0 8px 28px #163c2410;
+}
+body.dark {
+  --bg:#101813;--surface:#19251e;--text:#eff6f0;--muted:#a0afa4;
+  --green:#48c78e;--green2:#153d2c;--line:#2b3b30;
+  --shadow:0 8px 28px #0003;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font-family:Inter,Arial,sans-serif;transition:background .2s}
+button,input,select{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:var(--surface);
+border-bottom:1px solid var(--line)}
+.nav{max-width:1400px;margin:auto;padding:14px 22px;
+display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-size:24px;font-weight:900;letter-spacing:-1px;
+color:var(--green);white-space:nowrap}
+.logo span{color:var(--text)}
+.search{flex:1;min-width:180px;padding:13px 16px;border-radius:12px;
+border:1px solid var(--line);background:var(--bg);color:var(--text)}
+.btn,.primary{border:1px solid var(--line);border-radius:10px;
+padding:10px 13px;background:var(--surface);color:var(--text)}
+.primary{background:var(--green);border-color:var(--green);
+color:white;font-weight:750}
+.primary:hover{filter:brightness(.92)}
+button:focus-visible,input:focus-visible,select:focus-visible{
+outline:3px solid #39b97f;outline-offset:2px}
+.hero{max-width:1400px;margin:24px auto;padding:42px 28px;
+border-radius:22px;background:linear-gradient(125deg,#073d2c,#12734d);
+color:white;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(32px,5vw,58px);margin:0 0 12px;
+letter-spacing:-2px}
+.hero p{max-width:650px;line-height:1.7;color:#e2f4e8}
+.tag{display:inline-block;border:1px solid #ffffff55;
+border-radius:99px;padding:7px 11px;font-size:12px;margin-bottom:15px}
+.wrap{max-width:1400px;margin:auto;padding:0 22px 50px}
+.trust{font-size:12px;color:var(--muted);margin:15px 0}
+.categories{display:flex;gap:9px;overflow-x:auto;padding:8px 0 18px}
+.chip{white-space:nowrap;border:1px solid var(--line);border-radius:99px;
+padding:10px 15px;background:var(--surface);color:var(--text)}
+.chip.active{background:var(--green);border-color:var(--green);color:white}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;
+gap:12px;flex-wrap:wrap;margin:18px 0}
+.sectionhead h2{margin:0}
+.controls{display:flex;gap:9px;flex-wrap:wrap}
+.controls select{padding:10px;border:1px solid var(--line);
+border-radius:10px;background:var(--surface);color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{min-width:0;background:var(--surface);border:1px solid var(--line);
+border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.photo{position:relative;background:var(--line);aspect-ratio:4/3}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
-.heart{position:absolute;right:9px;top:9px;border:0;border-radius:50%;padding:9px;background:#06160ee8;color:white;font-size:19px}
-.content{padding:13px;display:flex;flex-direction:column;gap:9px;flex:1}
-.tag{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--green);font-weight:bold}
-.content h3{margin:0;font-size:16px;line-height:1.35}
-.price{font-size:22px;font-weight:900}.old{text-decoration:line-through;color:var(--muted);font-size:13px}
-.discount{font-size:12px;color:var(--green);font-weight:bold}
-.cardbuttons{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
-.cardbuttons button,.cardbuttons a{flex:1;text-align:center;font-size:12px;padding:9px 5px;text-decoration:none;white-space:nowrap}
-.panel{background:var(--panel);border:1px solid var(--border);padding:18px;border-radius:15px;margin:20px 0}
-.panelgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.coupon{background:var(--panel2);padding:15px;border:1px dashed var(--green);border-radius:12px}
-.coupon strong{font-size:20px;color:var(--green)}
-.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:11px;border-bottom:1px solid var(--border)}
-th{color:var(--green)}.hidden{display:none!important}
-.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
-.review{padding:13px;border-radius:10px;background:var(--panel2);overflow-wrap:anywhere}
-form{display:grid;gap:10px}
-footer{padding:30px 5%;border-top:1px solid var(--border);color:var(--muted);line-height:1.7}
-#toast{position:fixed;z-index:10;bottom:18px;left:50%;transform:translateX(-50%);background:var(--green);color:#052014;padding:12px 18px;border-radius:10px;display:none;font-weight:bold}
-@media(max-width:1100px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar{grid-template-columns:1fr}.panelgrid,.reviews{grid-template-columns:1fr}.photo{height:150px}}
-@media(max-width:430px){.grid{gap:8px}.photo{height:120px}.content{padding:9px}.content h3{font-size:14px}.price{font-size:18px}.cardbuttons{gap:4px}.cardbuttons button,.cardbuttons a{font-size:11px}}
+.heart{position:absolute;right:10px;top:10px;background:white;color:#25352b;
+border:0;border-radius:50%;width:38px;height:38px;font-size:20px}
+.cardbody{padding:14px}
+.category-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;
+color:var(--green);font-weight:800}
+.card h3{font-size:16px;line-height:1.35;min-height:42px;margin:8px 0}
+.desc{font-size:12px;color:var(--muted);line-height:1.5;min-height:35px}
+.prices{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:12px 0}
+.price{font-size:21px;font-weight:850;color:var(--green)}
+.old{font-size:13px;color:var(--muted);text-decoration:line-through}
+.demo{font-size:10px;border-radius:5px;background:#fff0ce;color:#754b00;
+padding:4px 6px;font-weight:700}
+.cardbuttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cardbuttons button{font-size:12px;padding:10px 6px}
+.empty{padding:55px 20px;text-align:center;border:1px dashed var(--line);
+border-radius:18px}
+.cart-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);
+gap:22px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);
+border-radius:18px;padding:20px}
+.cart-item{display:flex;gap:14px;align-items:center;padding:16px 0;
+border-bottom:1px solid var(--line)}
+.cart-item img{width:90px;height:90px;object-fit:cover;border-radius:12px}
+.cart-item-info{flex:1;min-width:0}
+.cart-item h3{font-size:15px;margin:0 0 8px}
+.qty{display:flex;align-items:center;gap:10px;margin-top:10px}
+.qty button{min-width:32px;padding:6px;border:1px solid var(--line);
+border-radius:8px;background:var(--bg);color:var(--text)}
+.remove{border:0;background:transparent;color:#d45b5b;margin-top:8px;padding:4px}
+.totalrow{display:flex;justify-content:space-between;gap:12px;margin:16px 0}
+.grandtotal{border-top:1px solid var(--line);padding-top:17px;font-size:20px}
+.checkout{width:100%;padding:14px;margin-top:10px}
+footer{border-top:1px solid var(--line);padding:30px 22px;
+color:var(--muted);font-size:13px;text-align:center}
+.modal-backdrop{position:fixed;inset:0;background:#0009;z-index:30;
+display:none;align-items:center;justify-content:center;padding:18px}
+.modal{background:var(--surface);color:var(--text);border-radius:18px;
+padding:24px;width:min(500px,100%);max-height:90vh;overflow:auto}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);
+background:#173b2b;color:white;padding:13px 18px;border-radius:12px;
+z-index:50;display:none;max-width:90%;text-align:center}
+.hidden{display:none!important}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){
+ .nav{padding:12px}.logo{font-size:21px}.search{order:3;flex-basis:100%}
+ .hero{margin:14px;padding:28px 20px}.wrap{padding:0 13px 35px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .cardbody{padding:10px}.card h3{font-size:14px}
+ .cardbuttons{grid-template-columns:1fr}
+ .cart-layout{grid-template-columns:1fr}.cart-item img{width:70px;height:70px}
+}
+@media(max-width:360px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
- <div class="logo">DRAHIM <span>UAE</span></div>
- <div class="actions">
-  <button class="btn" onclick="showPanel('favorites')">♥ Favorites <span id="favcount">0</span></button>
-  <button class="btn" onclick="showPanel('comparison')">⇄ Compare <span id="comparecount">0</span></button>
-  <button class="btn" onclick="toggleTheme()">◐ Theme</button>
-  <button class="btn" onclick="toggleLanguage()" id="languageBtn">عربي</button>
- </div>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#" class="logo" onclick="goHome();return false"
+      style="text-decoration:none">Drahim <span>UAE</span></a>
+    <input class="search" id="search" placeholder="Search food, hotels, deals..."
+      aria-label="Search deals" oninput="renderProducts()">
+    <button class="btn" onclick="showFavorites()">♡ Saved</button>
+    <button class="btn" onclick="showCart()">🛒 Cart <span id="cartCount">0</span></button>
+    <button class="btn" onclick="toggleTheme()" aria-label="Toggle theme">◐</button>
+  </nav>
 </header>
 
-<section class="hero">
- <div class="tag">UAE SHOPPING DISCOVERY</div>
- <h1 id="heroTitle">Find your next deal.<br><em>Shop smarter.</em></h1>
- <p id="heroText">800 product ideas, 10 categories, product-specific pictures, search, favorites and comparisons — all in one place.</p>
- <p><strong id="total">800</strong> product ideas · 10 categories · UAE</p>
+<section class="hero" id="hero">
+  <span class="tag">DISCOVER • SAVE • ENJOY</span>
+  <h1>More experiences.<br>Better deals.</h1>
+  <p>Discover places to eat, stay, shop and explore across the UAE.
+    Add your favourite deals to one convenient cart.</p>
+  <button class="primary" onclick="document.getElementById('deals').scrollIntoView({behavior:'smooth'})">
+    Explore deals ↓
+  </button>
 </section>
 
-<main>
- <div class="toolbar">
-  <input id="search" placeholder="🔎 Search products, stores..." oninput="render()">
-  <select id="sort" onchange="render()">
-   <option value="featured">Featured</option>
-   <option value="low">Price: low to high</option>
-   <option value="high">Price: high to low</option>
-   <option value="discount">Largest example discount</option>
-   <option value="name">Name A–Z</option>
-  </select>
-  <select id="emirate" onchange="render()">
-   <option value="All">All Emirates</option>
-   <option>Dubai</option><option>Sharjah</option><option>Abu Dhabi</option>
-   <option>Ajman</option><option>Ras Al Khaimah</option><option>Fujairah</option><option>Umm Al Quwain</option>
-  </select>
- </div>
- <div id="categories" class="categories"></div>
- <div class="heading"><h2 id="listtitle">🔥 All product ideas</h2><span id="count" class="muted"></span></div>
- <div id="products" class="grid"></div>
- <div style="text-align:center;margin:22px"><button class="btn primary" id="more" onclick="loadMore()">Load more products</button></div>
-
- <section class="panel">
-  <div class="heading"><h2>🎟️ Coupon corner</h2><span class="muted">Demo codes only</span></div>
-  <div id="coupons" class="panelgrid"></div>
- </section>
-
- <section id="favorites" class="panel hidden">
-  <div class="heading"><h2>♥ Your favorites</h2><button class="btn" onclick="showPanel('home')">Back to deals</button></div>
-  <div id="favproducts" class="grid"></div>
- </section>
-
- <section id="comparison" class="panel hidden">
-  <div class="heading"><h2>⇄ Compare products</h2><button class="btn" onclick="clearComparison()">Clear</button></div>
-  <p class="muted">Example prices only. Confirm actual prices with retailers.</p>
-  <div class="tablewrap"><table id="comparetable"></table></div>
- </section>
-
- <section class="panel">
-  <div class="heading"><h2>👀 Recently viewed</h2></div>
-  <div id="recent" class="grid"></div>
- </section>
-
- <section class="panel">
-  <div class="heading"><h2>🔔 Price watchlist</h2></div>
-  <p class="muted">Save your target prices locally. Automatic store monitoring and notifications are not connected in this demo.</p>
-  <form id="alertform">
-   <select id="alertproduct"></select>
-   <input id="targetprice" type="number" min="1" placeholder="Target price in AED" required>
-   <button class="btn primary">Save target price</button>
-  </form>
-  <div id="alerts" style="margin-top:12px"></div>
- </section>
-
- <section class="panel">
-  <div class="heading"><h2>⭐ Community reviews</h2></div>
-  <form id="reviewform">
-   <input id="reviewname" placeholder="Display name (optional)" maxlength="30">
-   <select id="rating"><option value="5">★★★★★ 5 stars</option><option value="4">★★★★ 4 stars</option><option value="3">★★★ 3 stars</option><option value="2">★★ 2 stars</option><option value="1">★ 1 star</option></select>
-   <textarea id="reviewtext" placeholder="Review the Drahim website..." maxlength="400" required></textarea>
-   <button class="btn primary">Post review</button>
-  </form>
-  <div id="reviews" class="reviews"></div>
- </section>
-
- <section class="panel">
-  <div class="heading"><h2>🛠️ Add a product</h2><span class="muted">Local demo admin tools</span></div>
-  <p class="muted">This is not a secure admin account. Added products are saved only in this browser.</p>
-  <form id="addform" class="panelgrid">
-   <input id="newtitle" placeholder="Product title" required maxlength="100">
-   <input id="newshop" placeholder="Store name" required maxlength="60">
-   <select id="newcategory"></select>
-   <input id="newprice" type="number" min="1" placeholder="Example price (AED)" required>
-   <input id="newold" type="number" min="1" placeholder="Example previous price" required>
-   <input id="newimage" type="url" placeholder="Optional product image URL">
-   <input id="newurl" type="url" placeholder="Retailer URL (https://...)" required>
-   <button class="btn primary">＋ Add product</button>
-  </form>
-  <div class="actions" style="margin-top:15px">
-   <button class="btn" onclick="exportCatalogue()">Export JSON</button>
-   <button class="btn" onclick="resetCatalogue()">Reset generated catalogue</button>
+<main class="wrap" id="main">
+  <div class="trust">DEMO PREVIEW · Sample prices and listings are not verified live offers.</div>
+  <div class="sectionhead">
+    <h2 id="heading">Explore deals</h2>
+    <div class="controls">
+      <select id="sort" onchange="renderProducts()" aria-label="Sort deals">
+        <option value="featured">Featured</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+        <option value="name">Name: A to Z</option>
+      </select>
+    </div>
   </div>
- </section>
+  <div class="categories" id="categories"></div>
+  <div id="deals" class="grid" aria-live="polite"></div>
+  <div id="pagination" style="text-align:center;padding:25px"></div>
 </main>
+
 <footer>
- <strong>DRAHIM UAE</strong> — shopping discovery project.<br>
- Product pictures are loaded from Unsplash. Some images may be illustrative rather than exact product models.<br>
- Prices, discounts, coupons and generated products are examples, not verified live deals. Store links lead to retailer websites, not necessarily the exact product page. Live offers, secure user accounts and shared databases require a backend.
+  <strong>Drahim UAE</strong> · Deal discovery demo<br><br>
+  Verify seller, availability, prices and terms before purchasing.
+  This preview does not process payments or make bookings.
 </footer>
-<div id="toast"></div>
+
+<div class="modal-backdrop" id="modalBackdrop" onclick="backdropClose(event)">
+  <div class="modal" id="modal" role="dialog" aria-modal="true"
+    aria-labelledby="modalTitle"></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 "use strict";
 
-/* Each category has 80 product ideas. */
-const data = {
-"Electronics":`Wireless mouse|Gaming mouse|Office mouse|Wireless keyboard|Mechanical keyboard|Compact keyboard|Gaming keyboard|Laptop|Gaming laptop|Student laptop|Business laptop|Desktop computer|Mini PC|Gaming monitor|Office monitor|Portable monitor|Ultrawide monitor|Smartphone|Android phone|Budget phone|Tablet|Drawing tablet|E-reader|Smartwatch|Fitness tracker|Wireless earbuds|Over-ear headphones|Gaming headset|Studio headphones|Bluetooth speaker|Portable speaker|Soundbar|Home speaker|USB microphone|Podcast microphone|Webcam|Streaming camera|Action camera|Digital camera|Camera tripod|Ring light|Phone tripod|Phone gimbal|Projector|Mini projector|Smart TV|Streaming device|Wi-Fi router|Mesh Wi-Fi system|Ethernet adapter|USB-C hub|USB hub|Portable SSD|External hard drive|Memory card|Card reader|Power bank|Fast phone charger|Wireless charger|Laptop charger|Travel adapter|HDMI cable|Ethernet cable|Surge protector|Laptop stand|Laptop cooling pad|Laptop sleeve|Laptop backpack|Phone case|Screen protector|Tablet case|Smart bulb|Smart plug|Security camera|Video doorbell|Air purifier|Digital alarm clock|Smart home hub|VR headset|Printer`,
-"Fashion":`Basic T-shirt|Graphic T-shirt|Cotton hoodie|Zip-up hoodie|Denim jacket|Lightweight jacket|Puffer jacket|Rain jacket|Windbreaker|Wool coat|Knit sweater|Cardigan|Polo shirt|Formal shirt|Linen shirt|Flannel shirt|Long-sleeve top|Tank top|Oversized sweatshirt|Blazer|Formal suit|Formal trousers|Chino trousers|Denim jeans|Straight jeans|Relaxed jeans|Cargo trousers|Wide-leg trousers|Joggers|Sports leggings|Casual shorts|Bermuda shorts|Swim shorts|Summer dress|Maxi dress|Midi dress|Wrap dress|Party dress|Pleated skirt|Denim skirt|Jumpsuit|Casual overalls|Modest dress|Scarf|Fashion belt|Baseball cap|Bucket hat|Beanie|Sunglasses|Leather wallet|Card holder|Crossbody bag|Tote bag|Mini backpack|Laptop bag|Travel pouch|Pyjama set|Bathrobe|Socks multipack|Sports jersey|Track jacket|Track pants|Fleece pullover|Quilted vest|Linen trousers|Beach cover-up|Swimsuit|Formal waistcoat|Work shirt|Casual tunic|Hair accessories|Fashion watch|Tie|Bow tie|Gloves|Winter scarf|Rain poncho|Clothing organiser|Garment bag|Travel laundry bag`,
-"Beauty":`Face cleanser|Daily moisturiser|Sunscreen SPF|Lip balm|Lip gloss|Lipstick|Lip liner|Mascara|Eyebrow pencil|Blush palette|Makeup brush set|Makeup sponge|Foundation|Concealer|Setting powder|Setting spray|Eyeshadow palette|Eyeliner|Face serum|Vitamin C serum|Hyaluronic serum|Face mask|Clay mask|Eye cream|Night cream|Body lotion|Hand cream|Body wash|Shampoo|Conditioner|Hair mask|Hair oil|Leave-in conditioner|Heat protectant|Hair brush|Wide-tooth comb|Hair dryer|Hair straightener|Curling wand|Hair clips|Scrunchies|Nail polish|Nail file set|Cuticle oil|Nail care kit|Perfume|Body mist|Deodorant|Toiletry bag|Cotton pads|Reusable makeup pads|Facial roller|Gua sha tool|Exfoliating mitt|Bath salts|Foot cream|Foot file|Shaving kit|Aftershave balm|Beard oil|Beard comb|Makeup organiser|Vanity mirror|LED mirror|Travel bottles|Hair towel|Silk pillowcase|Manicure set|Tweezers|Eyelash curler|Makeup remover|Micellar water|Cleansing balm|Bronzer|Highlighter|Primer|Body scrub|Perfume atomiser|Cosmetic pouch|Beauty fridge|Nail clippers`,
-"Food":`Pizza meal|Burger meal|Chicken wrap|Falafel sandwich|Shawarma meal|Sushi platter|Noodle bowl|Pasta meal|Grilled chicken|Rice bowl|Salad bowl|Breakfast combo|Pancake stack|Waffle plate|Sandwich combo|Fresh juice|Fruit smoothie|Iced coffee|Hot coffee|Milk tea|Bubble tea|Bakery box|Croissant box|Donut box|Cookie box|Cake slice|Celebration cake|Ice cream tub|Frozen yoghurt|Fruit cup|Fruit platter|Snack box|Popcorn bucket|Nachos combo|Chicken wings|Loaded fries|Taco meal|Burrito bowl|Kebab platter|Mixed grill|Seafood platter|Fish and chips|Soup bowl|Healthy lunch box|Vegetarian bowl|Vegan wrap|Breakfast sandwich|Omelette meal|Porridge bowl|Acai bowl|Granola cup|Yoghurt parfait|Hummus platter|Cheese platter|Mini sandwiches|Family pizza|Family burger box|Party food tray|Meal prep box|Fresh salad pack|Sushi roll box|Dumpling plate|Ramen bowl|Curry meal|Biryani meal|Mandi platter|Manakish box|Pastry assortment|Ice cream cone|Milkshake|Lemonade|Mocktail|Bottled water|Coffee beans|Tea assortment|Chocolate box|Dates gift box|Nut snack pack|Healthy snack box|Picnic hamper`,
-"Hotels":`Dubai city hotel|Beach resort stay|Family hotel room|Airport hotel stay|Staycation package|Desert resort stay|Mountain lodge stay|Waterfront hotel|Downtown hotel|Business hotel|Boutique hotel|Luxury suite|Garden resort|Poolside room|Spa hotel stay|Romantic getaway|Weekend package|Weekday stay|Long-stay apartment|Serviced apartment|Family suite|Connecting rooms|Breakfast package|Half-board stay|Full-board stay|Late checkout option|Early check-in option|Sea-view room|City-view room|Marina-view room|Desert-view room|Theme park hotel|Shopping district stay|Museum district stay|Golf resort stay|Wellness retreat|Yoga retreat stay|Nature lodge|Glamping stay|Cabin getaway|Farm stay|Heritage hotel|Historic inn|Island resort|Water villa stay|Pool villa stay|Private villa stay|Chalet stay|Beachfront apartment|Downtown apartment|Business suite|Executive room|Accessible room|Pet-friendly stay|Kids club resort|All-inclusive stay|Conference hotel|Meeting room package|Event venue stay|Wedding hotel package|Airport transfer package|Tour hotel bundle|Cruise hotel night|Desert camp stay|Rooftop pool stay|Brunch hotel package|Dining stay package|Spa weekend|Wellness weekend|Family holiday package|Couples weekend|Friends getaway|Staycation for two|Long weekend escape|Mountain retreat|City break package|Resort day pass|Pool day pass|Beach club day pass`,
-"Home":`Study desk|Office chair|Desk organiser|Bookshelf|Bedside table|Floor lamp|Table lamp|LED strip lights|Ceiling light|Decorative mirror|Wall clock|Picture frames|Throw blanket|Cushion covers|Area rug|Door mat|Curtains|Blackout curtains|Curtain rods|Laundry basket|Clothes hanger set|Wardrobe organiser|Storage boxes|Under-bed storage|Shoe rack|Coat rack|Entryway bench|Sofa cover|Coffee table|Side table|Dining chairs|Dining table|Bar stools|TV stand|Floating shelves|Wall shelves|Plant pots|Artificial plant|Indoor planter|Vase set|Candle holder|Scent diffuser|Room fragrance|Air purifier|Humidifier|Dehumidifier|Standing fan|Table fan|Heater|Vacuum cleaner|Handheld vacuum|Mop set|Broom set|Cleaning caddy|Dish rack|Kitchen trolley|Food containers|Spice rack|Pan set|Cookware set|Cutlery set|Dinner plates|Glassware set|Coffee mugs|Water bottle|Electric kettle|Toaster|Blender|Air fryer|Rice cooker|Microwave|Coffee machine|Sandwich maker|Kitchen scale|Chopping board|Knife organiser|Oven mitts|Bath towels|Shower curtain|Bathroom organiser|Laundry drying rack|Ironing board`,
-"Groceries":`Rice bag|Pasta multipack|Oats pack|Breakfast cereal|Flour bag|Sugar pack|Cooking oil|Olive oil|Canned tomatoes|Canned beans|Chickpeas pack|Lentils pack|Tuna cans|Soup cans|Peanut butter|Jam jar|Honey jar|Coffee jar|Tea bags|Bottled water|Sparkling water|Fruit juice|Long-life milk|Fresh milk|Yoghurt pack|Cheese pack|Butter pack|Egg tray|Bread loaf|Tortilla pack|Pita bread|Frozen vegetables|Frozen fruit|Frozen pizza|Frozen chicken|Chicken breast pack|Ground beef pack|Fish fillets|Fresh apples|Bananas bunch|Oranges bag|Grapes pack|Strawberries box|Potatoes bag|Onions bag|Tomatoes pack|Cucumber pack|Carrots bag|Lettuce pack|Bell peppers|Mushrooms pack|Avocados pack|Dates pack|Almonds pack|Mixed nuts|Dried fruit|Potato chips|Crackers box|Chocolate bars|Biscuits pack|Cookies pack|Breakfast bars|Popcorn pack|Pasta sauce|Mayonnaise jar|Ketchup bottle|Mustard bottle|Soy sauce|Vinegar bottle|Spice set|Salt pack|Black pepper|Stock cubes|Baking powder|Vanilla extract|Dishwashing liquid|Laundry detergent|Fabric softener|Kitchen paper|Tissues multipack|Toilet paper|Trash bags`,
-"Shoes":`Everyday sneakers|Running shoes|Walking shoes|Training shoes|Basketball shoes|Football boots|Tennis shoes|Trail runners|Hiking boots|Water shoes|Canvas trainers|Leather sneakers|Slip-on shoes|Loafers|Formal shoes|Oxford shoes|Derby shoes|Chelsea boots|Ankle boots|Winter boots|Rain boots|Sandals|Slides|Flip-flops|Pool slippers|House slippers|Clogs|Mules|Ballet flats|Mary Janes|Heeled sandals|Block heels|Formal heels|Wedge sandals|Espadrilles|Boat shoes|Skate shoes|High-top sneakers|Low-top sneakers|Retro trainers|Minimal sneakers|Gym shoes|Court shoes|Indoor football shoes|Golf shoes|Cycling shoes|Dance shoes|Work shoes|Safety shoes|School shoes|Kids sneakers|Kids sandals|Kids boots|Toddler shoes|Baby booties|Wide-fit shoes|Lightweight trainers|Cushioned runners|Stability runners|Racing flats|Hiking sandals|Waterproof hikers|Desert boots|Leather loafers|Suede loafers|Driving shoes|Platform sneakers|Platform sandals|Chunky sneakers|Slip-resistant shoes|Travel walking shoes|Recovery slides|Shoe cleaning kit|Sneaker protector|Shoe deodoriser|Shoe organiser|Shoe storage boxes|Laces multipack|Insoles|Heel cushions`,
-"Travel":`Cabin suitcase|Large suitcase|Carry-on backpack|Travel duffel|Packing cubes|Passport holder|Travel wallet|Luggage tags|Luggage scale|Travel pillow|Eye mask|Travel blanket|Travel headphones|Universal adapter|Power bank|Travel charger|Cable pouch|Toiletry bag|Refillable bottles|Waterproof pouch|Daypack|Hiking backpack|Foldable tote|Travel umbrella|Rain poncho|Compression socks|Reusable water bottle|Thermal bottle|Travel mug|Compact binoculars|Action camera|Travel tripod|Phone gimbal|Camera backpack|Dry bag|Beach bag|Quick-dry towel|Packing folder|Shoe travel bags|Laundry travel bag|First-aid pouch|Travel sewing kit|Mini flashlight|Portable fan|Neck fan|Luggage strap|Travel lock|Document organiser|Itinerary notebook|Travel journal|Language phrasebook|Offline map guide|City tour pass|Museum pass|Attraction ticket idea|Desert tour idea|City sightseeing tour|Boat tour idea|Theme park ticket idea|Aquarium visit idea|Waterpark visit idea|Mountain excursion|Guided hike idea|Food tour idea|Walking tour idea|Airport transfer|Car rental idea|Rail pass idea|Ferry ticket idea|Hotel transfer|Camping tent|Sleeping bag|Travel hammock|Portable picnic set|Binocular case|Foldable walking stick|Sun hat|Travel sunglasses|Quick-dry shirt|Travel trousers|Compact laundry line|Travel cutlery set`,
-"Gaming":`Gaming mouse|Wireless gaming mouse|Gaming keyboard|Mechanical gaming keyboard|Gaming headset|Gaming mouse pad|Gaming monitor|Monitor arm|Gaming chair|Gaming desk|Wireless controller|Controller charging dock|Console stand|Console headset|Console storage drive|Gaming laptop|Gaming desktop|Graphics card|Gaming RAM kit|PC case|CPU cooler|Case fans|Power supply|Motherboard|Gaming SSD|Gaming microphone|Microphone arm|Streaming webcam|Capture card|Stream deck|Ring light|LED desk light|RGB light strip|Cable management kit|Headphone stand|Controller grip|Thumbstick caps|Controller case|Console travel bag|Portable gaming monitor|Handheld gaming device|VR headset|VR controller grip|Racing wheel|Racing pedals|Flight joystick|Arcade stick|Fight pad|Gaming speakers|Soundbar|USB hub|Ethernet adapter|Gaming router|Mouse bungee|Keyboard wrist rest|Keycap set|Switch tester|Desk mat|Gaming glasses|Cooling pad|Laptop stand|Console dust cover|Controller battery pack|Rechargeable batteries|Charging station|Chair cushion|Footrest|Streaming backdrop|Acoustic panels|Pop filter|XLR cable|Audio interface|Studio headphones|Game storage case|Disc organiser|Controller case pouch|Portable SSD|Gaming gift card idea|Gaming subscription idea|Esports jersey|Gaming backpack|Gaming figurine`
-};
-
-const categoryList=Object.keys(data);
-const stores={
-"Electronics":"https://www.amazon.ae/","Fashion":"https://www.hm.com/","Beauty":"https://www.sephora.ae/",
-"Food":"https://www.talabat.com/uae","Hotels":"https://www.booking.com/","Home":"https://www.ikea.com/ae/en/",
-"Groceries":"https://www.carrefouruae.com/","Shoes":"https://www.nike.com/ae/","Travel":"https://www.skyscanner.ae/",
-"Gaming":"https://www.virginmegastore.ae/"
-};
-const shopNames={
-"Electronics":["Amazon UAE","Noon","Jumbo"],"Fashion":["H&M","Zara","LC Waikiki"],
-"Beauty":["Sephora","Faces","The Body Shop"],"Food":["Talabat","Deliveroo","Restaurant picks"],
-"Hotels":["Booking.com","Marriott","Hilton"],"Home":["IKEA","Home Centre","Danube Home"],
-"Groceries":["Carrefour","Lulu Hypermarket","Spinneys"],"Shoes":["Nike","Adidas","New Balance"],
-"Travel":["Skyscanner","Etihad","Visit Dubai"],"Gaming":["Virgin Megastore","Amazon UAE","Noon"]
-};
-
-/* Product-specific picture libraries. Different products get different images. */
-const pictureRules=[
- [/wireless mouse|gaming mouse|office mouse/,"photo-1527814050087-3793815479db"],
- [/keyboard|keycap|switch tester/,"photo-1587829741301-dc798b83add3"],
- [/laptop|mini pc|desktop computer|business laptop|student laptop|gaming desktop/,"photo-1496181133206-80ce9b88a853"],
- [/monitor|portable monitor|ultrawide monitor|gaming monitor/,"photo-1527443224154-c4a3942d3acf"],
- [/headphone|earbud|headset/,"photo-1505740420928-5e560c06d30e"],
- [/speaker|soundbar/,"photo-1608043152269-423dbba4e7e1"],
- [/smartphone|android phone|budget phone|phone case/,"photo-1511707171634-5f897ff02aa9"],
- [/tablet|drawing tablet|e-reader/,"photo-1544244015-0df4b3ffc6b0"],
- [/smartwatch|fashion watch|fitness tracker/,"photo-1523275335684-37898b6baf30"],
- [/charger|power bank|battery pack|adapter/,"photo-1609592806596-b43badae9c9b"],
- [/camera|webcam|capture card|action camera/,"photo-1516035069371-29a1b244cc32"],
- [/gaming chair|office chair/,"photo-1586023492125-27b2c045efd7"],
- [/shoe|sneaker|trainer|boot|sandals|slippers|loafers|heels/,"photo-1542291026-7eec264c27ff"],
- [/hoodie|sweatshirt|jacket|coat|windbreaker|vest/,"photo-1551028719-00167b16eac5"],
- [/jeans|trousers|pants|joggers|leggings|shorts/,"photo-1542272604-787c3835535d"],
- [/dress|skirt|abaya|jumpsuit/,"photo-1483985988355-763728e1935b"],
- [/shirt|t-shirt|tee|polo|top|sweater|cardigan|suit/,"photo-1521572163474-6864f9cf17ab"],
- [/bag|backpack|suitcase|luggage|wallet|pouch/,"photo-1553062407-98eeb64c6a62"],
- [/sunglasses|glasses/,"photo-1511499767150-a48a237f0083"],
- [/perfume|fragrance|body mist|atomiser/,"photo-1541643600914-78b084683601"],
- [/lipstick|lip gloss|lip liner|mascara|makeup|eyeshadow|blush|foundation|concealer|eyeliner|bronzer|highlighter/,"photo-1596462502278-27bfdc403348"],
- [/moisturiser|serum|cleanser|sunscreen|cream|face mask|skincare|lotion/,"photo-1608248543803-ba4f8c70ae0b"],
- [/shampoo|conditioner|hair oil|hair mask|hair dryer/,"photo- haircare"],
- [/pizza/,"photo-1513104890138-7c749659a591"],
- [/burger/,"photo-1568901346375-23c9450c58cd"],
- [/sushi/,"photo-1579871494447-9811cf80d66c"],
- [/coffee|espresso|cappuccino|tea|milk tea/,"photo-1495474472287-4d71bcdd2085"],
- [/cake|cookie|donut|croissant|waffle|pancake|pastry|bakery/,"photo-1509440159596-0249088772ff"],
- [/juice|smoothie|lemonade|mocktail|milkshake/,"photo-1544145945-f90425340c7e"],
- [/chicken|shawarma|kebab|grill|wings/,"photo-1532550907401-a500c9a57435"],
- [/salad|vegetable|fruit|apple|banana|orange|grapes|strawberries|avocado|lettuce|carrot|tomato|cucumber/,"photo-1540420773420-3366772f4999"],
- [/rice|pasta|noodle|ramen|biryani|curry|dumpling/,"photo-1555939594-58d7cb561ad1"],
- [/ice cream|frozen yoghurt/,"photo-1563805042-7684c019e1cb"],
- [/hotel|resort|stay|suite|villa|lodge|apartment|retreat|cabin/,"photo-1566073771259-6a8506099945"],
- [/desk|table|chair|bookshelf|shelf|wardrobe|sofa|furniture|bedside/,"photo-1616486338812-3dadae4b4ace"],
- [/lamp|light|bulb|mirror/,"photo-1507473885765-e6ed057f782c"],
- [/vacuum|mop|broom|cleaning/,"photo-1558317374-067fb5f30001"],
- [/kettle|toaster|blender|air fryer|rice cooker|microwave|coffee machine|cookware|pan set/,"photo-1556911220-bff31c812dba"],
- [/rice bag|pasta|oats|cereal|flour|sugar|beans|lentils|tuna|milk|yoghurt|cheese|butter|eggs|bread|frozen|grocery|supermarket|detergent|toilet paper/,"photo-1542838132-92c53300491e"],
- [/suitcase|passport|travel|packing|luggage|hiking|camping|sleeping bag/,"photo-1488646953014-85cb44e25828"],
- [/gaming|controller|console|esports|streaming|graphics card|pc case|vr headset|racing wheel|joystick/,"photo-1542751371-adc38448a05e"]
+const categories = [
+  {name:"All deals",icon:"✨"},
+  {name:"Restaurants",icon:"🍽️"},
+  {name:"Food & Delivery",icon:"🍕"},
+  {name:"Hotels",icon:"🏨"},
+  {name:"Electronics",icon:"🎧"},
+  {name:"Fashion",icon:"👟"},
+  {name:"Beauty",icon:"💆"},
+  {name:"Activities",icon:"🎟️"},
+  {name:"Home",icon:"🏠"},
+  {name:"Travel",icon:"✈️"},
+  {name:"Fitness",icon:"🏋️"}
 ];
 
-const fallbackImages={
-"Electronics":["photo-1498049794561-7780e7231661","photo-1519389950473-47ba0277781c","photo-1517336714731-489689fd1ca8","photo-1526738549149-8e07eca6c147","photo-1519389950473-47ba0277781c"],
-"Fashion":["photo-1483985988355-763728e1935b","photo-1490481651871-ab68de25d43d","photo-1483985988355-763728e1935b","photo-1515886657613-9f3515b0c78f"],
-"Beauty":["photo-1596462502278-27bfdc403348","photo-1608248543803-ba4f8c70ae0b","photo-1522335789203-aabd1fc54bc9"],
-"Food":["photo-1504674900247-0877df9cc836","photo-1540189549336-e6e99c3679fe","photo-1498837167922-ddd27525d352"],
-"Hotels":["photo-1566073771259-6a8506099945","photo-1571896349842-33c89424de2d","photo-1571896349842-33c89424de2d"],
-"Home":["photo-1616486338812-3dadae4b4ace","photo-1600210492486-724fe5c67fb0","photo-1618221195710-dd6b41faaea6"],
-"Groceries":["photo-1542838132-92c53300491e","photo-1547592180-85f173990554","photo-1540420773420-3366772f4999"],
-"Shoes":["photo-1542291026-7eec264c27ff","photo-1549298916-b41d501d3772","photo-1495555961986-6d4c1ecb7be3"],
-"Travel":["photo-1488646953014-85cb44e25828","photo-1469854523086-cc02fe5d8800","photo-1476514525535-07fb3b4ae5f1"],
-"Gaming":["photo-1542751371-adc38448a05e","photo-1593305841991-05c297ba4575","photo-1493711662062-fa541adb3fc8"]
+const catalog = {
+"Restaurants":[
+  ["Steakhouse Dinner","steak dinner restaurant"],
+  ["Italian Pasta Special","italian pasta"],
+  ["Sushi Sharing Platter","sushi platter"],
+  ["Family Grill Meal","mixed grill food"],
+  ["Rooftop Restaurant Dining","rooftop restaurant"],
+  ["Arabic Breakfast","arabic breakfast"],
+  ["Seafood Dinner","seafood restaurant"],
+  ["Burger Combo","gourmet burger"],
+  ["Indian Curry Meal","indian curry"],
+  ["Cafe Brunch","cafe brunch"]
+],
+"Food & Delivery":[
+  ["Pizza Bundle","fresh pizza"],
+  ["Chicken Meal Box","fried chicken meal"],
+  ["Dessert Box","dessert pastries"],
+  ["Fresh Juice Pack","fresh fruit juice"],
+  ["Sushi Delivery Set","sushi takeout"],
+  ["Family Meal Bundle","family takeaway meal"],
+  ["Bakery Treat Box","bakery bread pastries"],
+  ["Coffee & Pastry","coffee croissant"],
+  ["Healthy Lunch Bowl","healthy salad bowl"],
+  ["Ice Cream Pack","ice cream"]
+],
+"Hotels":[
+  ["Luxury City Hotel Stay","luxury hotel room"],
+  ["Beach Resort Weekend","beach resort hotel"],
+  ["Family Staycation","family hotel pool"],
+  ["Desert Resort Escape","desert luxury resort"],
+  ["Downtown Hotel Night","modern city hotel"],
+  ["Hotel Breakfast Package","hotel breakfast buffet"],
+  ["Pool Day Pass","hotel swimming pool"],
+  ["Spa Hotel Package","hotel spa"],
+  ["Romantic Stay Package","luxury hotel suite"],
+  ["Waterfront Hotel Stay","waterfront hotel"]
+],
+"Electronics":[
+  ["Wireless Headphones","wireless headphones"],
+  ["Bluetooth Speaker","portable bluetooth speaker"],
+  ["Smart Watch","smart watch"],
+  ["Gaming Mouse","gaming mouse"],
+  ["Mechanical Keyboard","mechanical keyboard"],
+  ["Phone Charger","usb c charger"],
+  ["Laptop Stand","laptop stand desk"],
+  ["Wireless Earbuds","wireless earbuds"],
+  ["Power Bank","portable power bank"],
+  ["Gaming Headset","gaming headset"]
+],
+"Fashion":[
+  ["Everyday Sneakers","white sneakers"],
+  ["Casual Hoodie","casual hoodie"],
+  ["Classic Backpack","backpack"],
+  ["Sports T-shirt","sports t shirt"],
+  ["Running Shoes","running shoes"],
+  ["Casual Cap","baseball cap"],
+  ["Everyday Watch","minimal wrist watch"],
+  ["Travel Bag","travel duffel bag"],
+  ["Comfort Slides","comfortable slides"],
+  ["Sports Jacket","sports jacket"]
+],
+"Beauty":[
+  ["Skincare Gift Set","skincare products"],
+  ["Spa Experience","spa treatment room"],
+  ["Hair Styling Package","hair salon"],
+  ["Nail Care Package","manicure salon"],
+  ["Facial Care Session","facial spa"],
+  ["Perfume Gift Set","perfume bottles"],
+  ["Self Care Bundle","self care products"],
+  ["Barber Service","modern barber shop"],
+  ["Beauty Essentials","beauty products"],
+  ["Relaxation Massage","spa relaxation room"]
+],
+"Activities":[
+  ["Aquarium Visit","large aquarium"],
+  ["Theme Park Tickets","theme park rides"],
+  ["Indoor Adventure","indoor adventure park"],
+  ["Cinema Night","cinema seats"],
+  ["Bowling Session","bowling alley"],
+  ["Escape Room Game","escape room"],
+  ["Water Park Day","water park slides"],
+  ["Museum Visit","modern museum"],
+  ["Desert Safari","desert safari dunes"],
+  ["Family Activity Pass","family entertainment"]
+],
+"Home":[
+  ["Modern Table Lamp","modern table lamp"],
+  ["Desk Organizer","desk organizer"],
+  ["Kitchen Essentials","kitchen utensils"],
+  ["Soft Cushion Set","decorative cushions"],
+  ["Coffee Maker","coffee maker machine"],
+  ["Storage Basket Set","storage baskets"],
+  ["Bed Linen Set","neutral bed linen"],
+  ["Plant Pot Set","indoor plant pots"],
+  ["Water Bottle","reusable water bottle"],
+  ["LED Desk Light","led desk lamp"]
+],
+"Travel":[
+  ["Weekend City Escape","city travel skyline"],
+  ["Desert Tour Package","desert tour"],
+  ["City Sightseeing Pass","city sightseeing bus"],
+  ["Boat Cruise Experience","boat cruise marina"],
+  ["Mountain Day Trip","mountains landscape"],
+  ["Airport Transfer","airport car transfer"],
+  ["Guided Walking Tour","guided city walking tour"],
+  ["Scenic Boat Trip","scenic boat trip"],
+  ["Cultural Tour","historic cultural district"],
+  ["Adventure Day Out","outdoor adventure travel"]
+],
+"Fitness":[
+  ["Gym Day Pass","modern fitness gym"],
+  ["Yoga Class Pack","yoga studio"],
+  ["Pilates Session","pilates studio"],
+  ["Swimming Pass","indoor swimming pool"],
+  ["Fitness Equipment Set","fitness equipment"],
+  ["Sports Class","sports training class"],
+  ["Boxing Training","boxing gym"],
+  ["Dance Class","dance studio"],
+  ["Tennis Court Session","tennis court"],
+  ["Wellness Class Pack","wellness studio"]
+]
 };
-function hash(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h)}
 
-function imageFor(title, category) {
-  const t = title.toLowerCase();
+const AED = new Intl.NumberFormat("en-AE",{
+  style:"currency",currency:"AED",maximumFractionDigits:2
+});
+const money = value => AED.format(value);
 
-  const imageSets = [
-    [/gaming mouse|mouse/, [
-      "photo-1527814050087-3793815479db",
-      "photo-1615663245857-ac93bb7c39e7",
-      "photo-1613141412501-9012977f1969"
-    ]],
-    [/keyboard/, [
-      "photo-1587829741301-dc798b83add3",
-      "photo-1595225476474-87563907a212",
-      "photo-1511467687858-23d96c32e4ae"
-    ]],
-    [/headphone|headset|earbud/, [
-      "photo-1505740420928-5e560c06d30e",
-      "photo-1546435770-a3e426bf472b",
-      "photo-1484704849700-f032a568e944"
-    ]],
-    [/controller|gamepad/, [
-      "photo-1592840496694-26d035b52b48",
-      "photo-1606144042614-b2417e99c4e3",
-      "photo-1593305841991-05c297ba4575"
-    ]],
-    [/lipstick|lip gloss/, [
-      "photo-1586495777744-4413f21062fa",
-      "photo-1596462502278-27bfdc403348",
-      "photo-1529139574466-a303027c1d8b"
-    ]],
-    [/makeup|eyeshadow|mascara|foundation|blush|concealer/, [
-      "photo-1522335789203-aabd1fc54bc9",
-      "photo-1512496015851-a90fb38ba796",
-      "photo-1596462502278-27bfdc403348"
-    ]],
-    [/serum|skincare|moisturiser|cleanser|sunscreen/, [
-      "photo-1608248543803-ba4f8c70ae0b",
-      "photo-1556229010-6c3f2c9ca5f8",
-      "photo-1571781926291-c477ebfd024b"
-    ]],
-    [/laptop/, [
-      "photo-1496181133206-80ce9b88a853",
-      "photo-1517336714731-489689fd1ca8",
-      "photo-1588872657578-7efd1f1555ed"
-    ]],
-    [/phone|smartphone|iphone|android/, [
-      "photo-1511707171634-5f897ff02aa9",
-      "photo-1598327105666-5b89351aff97",
-      "photo-1512499617640-c74ae3a79d37"
-    ]],
-    [/shoe|sneaker|trainer/, [
-      "photo-1542291026-7eec264c27ff",
-      "photo-1495555961986-6d4c1ecb7be3",
-      "photo-1552346154-21d32810aba3"
-    ]]
-  ];
+function imageFor(query, index) {
+  // Unsplash Source is used only for demo imagery, not verified seller photos.
+  const terms = encodeURIComponent(query);
+  return `https://images.unsplash.com/photo-${[
+    "1555396273-367ea4eb4db5",
+    "1517248135467-4c7edcad34c4",
+    "1514933651103-005eec06c04b",
+    "1552566626-52f8b828add9",
+    "1540189549336-e6e99c3679fe",
+    "1559339352-11d035aa65de",
+    "1515003197210-e0cd718e7f6b",
+    "1498837167922-ddd27525d352",
+    "1512621776951-a57141f2eefd",
+    "1546069901-ba9599a7e63c"
+  ][index % 10]}?auto=format&fit=crop&w=800&q=80`;
+}
 
-  const match = imageSets.find(([pattern]) => pattern.test(t));
+let allProducts = [];
+let currentCategory = "All deals";
+let page = 1;
+const pageSize = 24;
+let favorites = loadJSON("drahim_favorites", []);
+let cart = loadJSON("drahim_cart", {});
+let theme = localStorage.getItem("drahim_theme") || "light";
+let view = "home";
 
-  if (match) {
-    const images = match[1];
-    return "https://images.unsplash.com/" +
-      images[hash(t) % images.length] +
-      "?auto=format&fit=crop&w=700&q=80";
+function loadJSON(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key) || "null");
+    return value ?? fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function saveJSON(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    notify("Browser storage is unavailable; changes may not persist.");
+  }
+}
+
+function makeProducts() {
+  let id = 1;
+  const products = [];
+
+  for (const category of Object.keys(catalog)) {
+    for (let i = 0; i < 80; i++) {
+      const entry = catalog[category][i % catalog[category].length];
+      const variation = Math.floor(i / catalog[category].length) + 1;
+      const price = Math.round((20 + ((i * 37 + id * 13) % 480)) * 100) / 100;
+
+      products.push({
+        id,
+        title: variation === 1 ? entry[0] : `${entry[0]} — Offer ${variation}`,
+        category,
+        description: `Sample ${category.toLowerCase()} listing. Verify availability, terms and final price with the seller.`,
+        price,
+        oldPrice: Math.round(price * 1.25 * 100) / 100,
+        image: imageFor(entry[1], i),
+        sellerUrl: "",
+        demo: true
+      });
+      id++;
+    }
+  }
+  return products;
+}
+
+allProducts = makeProducts();
+
+function safe(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[ch]);
+}
+
+function renderCategories() {
+  document.getElementById("categories").innerHTML = categories.map(c => `
+    <button class="chip ${currentCategory === c.name ? "active" : ""}"
+      onclick="setCategory('${safe(c.name)}')">
+      ${c.icon} ${safe(c.name)}
+    </button>
+  `).join("");
+}
+
+function setCategory(name) {
+  currentCategory = name;
+  page = 1;
+  view = "home";
+  document.getElementById("hero").classList.remove("hidden");
+  renderCategories();
+  renderProducts();
+  document.getElementById("heading").textContent =
+    name === "All deals" ? "Explore deals" : name;
+}
+
+function getFilteredProducts() {
+  const query = document.getElementById("search").value.trim().toLowerCase();
+  let list = allProducts.filter(p => {
+    const matchesCategory = currentCategory === "All deals" ||
+      p.category === currentCategory;
+    const matchesQuery = !query ||
+      `${p.title} ${p.category} ${p.description}`.toLowerCase().includes(query);
+    return matchesCategory && matchesQuery;
+  });
+
+  const sort = document.getElementById("sort").value;
+  if (sort === "low") list.sort((a,b) => a.price - b.price);
+  if (sort === "high") list.sort((a,b) => b.price - a.price);
+  if (sort === "name") list.sort((a,b) => a.title.localeCompare(b.title));
+  return list;
+}
+
+function renderProducts() {
+  if (view !== "home") return;
+  const list = getFilteredProducts();
+  const pages = Math.max(1, Math.ceil(list.length / pageSize));
+  page = Math.min(page, pages);
+  const shown = list.slice((page-1)*pageSize, page*pageSize);
+  const grid = document.getElementById("deals");
+
+  if (!shown.length) {
+    grid.className = "";
+    grid.innerHTML = `<div class="empty"><h2>No deals found</h2>
+      <p>Try another search or category.</p>
+      <button class="primary" onclick="resetFilters()">Clear filters</button></div>`;
+    document.getElementById("pagination").innerHTML = "";
+    return;
   }
 
-  const pool = fallbackImages[category] || fallbackImages.Electronics;
-  const id = pool[hash(t) % pool.length];
+  grid.className = "grid";
+  grid.innerHTML = shown.map(p => `
+    <article class="card">
+      <div class="photo">
+        <img src="${safe(p.image)}" alt="${safe(p.title)}" loading="lazy"
+          onerror="this.onerror=null;this.src='https://placehold.co/600x450/e5eee7/24583c?text=Drahim+UAE'">
+        <button class="heart" aria-label="Save ${safe(p.title)}"
+          onclick="toggleFavorite(${p.id})">
+          ${favorites.includes(p.id) ? "♥" : "♡"}
+        </button>
+      </div>
+      <div class="cardbody">
+        <div class="category-label">${safe(p.category)}</div>
+        <h3>${safe(p.title)}</h3>
+        <p class="desc">${safe(p.description)}</p>
+        <div class="prices">
+          <span class="price">${money(p.price)}</span>
+          <span class="old">${money(p.oldPrice)}</span>
+        </div>
+        <p><span class="demo">DEMO PRICE</span></p>
+        <div class="cardbuttons">
+          <button class="btn" onclick="showDetails(${p.id})">Details</button>
+          <button class="primary" onclick="addToCart(${p.id})">＋ Add to cart</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
 
-  return "https://images.unsplash.com/" + id +
-    "?auto=format&fit=crop&w=700&q=80";
+  document.getElementById("pagination").innerHTML = `
+    <button class="btn" ${page===1?"disabled":""} onclick="changePage(-1)">← Previous</button>
+    <span style="margin:0 14px">Page ${page} of ${pages} · ${list.length} deals</span>
+    <button class="btn" ${page===pages?"disabled":""} onclick="changePage(1)">Next →</button>
+  `;
 }
 
-const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const money=n=>"AED "+Number(n).toLocaleString("en-AE",{maximumFractionDigits:0});
-function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}}
-function save(key,value){localStorage.setItem(key,JSON.stringify(value))}
+function changePage(amount) {
+  page += amount;
+  renderProducts();
+  document.getElementById("deals").scrollIntoView({behavior:"smooth"});
+}
 
-let products=load("drahim_products",null);
-if(!Array.isArray(products)||products.length<800){
- products=[];let id=1;
- for(let ci=0;ci<categoryList.length;ci++){
-  const cat=categoryList[ci],names=data[cat].split("|");
-  names.forEach((title,i)=>{
-   const price=10+((i*37+ci*53)%990);
-   const old=Math.round(price*(1.12+((i+ci)%5)*.13));
-   products.push({id:id++,title,category:cat,price,old,
-    shop:shopNames[cat][i%shopNames[cat].length],
-    emirate:i%4===0?"All":["Dubai","Sharjah","Abu Dhabi","Ajman","Ras Al Khaimah","Fujairah","Umm Al Quwain"][(i+ci)%7],
-    url:stores[cat],image:imageFor(title,cat),generated:true});
-  });
- }
- save("drahim_products",products);
+function resetFilters() {
+  document.getElementById("search").value = "";
+  document.getElementById("sort").value = "featured";
+  setCategory("All deals");
 }
-let favorites=load("drahim_favorites",[]);
-let comparison=load("drahim_comparison",[]);
-let recent=load("drahim_recent",[]);
-let alerts=load("drahim_alerts",[]);
-let reviews=load("drahim_reviews",[]);
-let active="All",page=1,pageSize=40,lang="en";
-const $=id=>document.getElementById(id);
-function toast(s){$("toast").textContent=s;$("toast").style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$("toast").style.display="none",2200)}
-function find(id){return products.find(p=>p.id===Number(id))}
-function card(p){
- const pct=Math.max(0,Math.round((1-p.price/p.old)*100));
- return `<article class="card">
- <div class="photo"><img src="${safe(p.image||imageFor(p.title,p.category))}" alt="${safe(p.title)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImages[p.category]?'https://images.unsplash.com/'+fallbackImages[p.category][0]+'?auto=format&fit=crop&w=700&q=80':''}'">
- <button class="heart" onclick="toggleFavorite(${p.id})">${favorites.includes(p.id)?"♥":"♡"}</button></div>
- <div class="content"><div class="tag">${safe(p.category)} · ${safe(p.shop)}</div>
- <h3>${safe(p.title)}</h3><div><span class="price">${money(p.price)}</span> <span class="old">${money(p.old)}</span></div>
- <div class="discount">${pct}% example difference</div>
- <div class="muted">Illustrative price · ${safe(p.emirate)}</div>
- <div class="cardbuttons"><button class="btn" onclick="addCompare(${p.id})">⇄ Compare</button><button class="btn" onclick="viewProduct(${p.id})">👁 View</button><a class="btn primary" href="${safe(p.url)}" target="_blank" rel="noopener noreferrer">Store ↗</a></div>
- </div></article>`;
+
+function persistCart() {
+  saveJSON("drahim_cart", cart);
+  updateCartCount();
 }
-function buildCategories(){
- $("categories").innerHTML=[{name:"All",icon:"✨"},...categoryList.map((name,i)=>({name,icon:["💻","👕","🧴","🍕","🏨","🏠","🛒","👟","✈️","🎮"][i]}))]
- .map(c=>`<button class="chip ${active===c.name?"active":""}" onclick="setCategory('${c.name}')">${c.icon} ${c.name}</button>`).join("");
- $("newcategory").innerHTML=categoryList.map(c=>`<option>${c}</option>`).join("");
- $("alertproduct").innerHTML=products.map(p=>`<option value="${p.id}">${safe(p.title)} — ${safe(p.category)}</option>`).join("");
+
+function updateCartCount() {
+  const count = Object.values(cart).reduce((sum,item) => sum + item.qty, 0);
+  document.getElementById("cartCount").textContent = count;
 }
-function render(){
- let list=products.filter(p=>(active==="All"||p.category===active)&&
-  ( $("emirate").value==="All"||p.emirate==="All"||p.emirate===$("emirate").value)&&
-  (p.title+" "+p.category+" "+p.shop).toLowerCase().includes($("search").value.toLowerCase().trim()));
- const sort=$("sort").value;
- if(sort==="low")list.sort((a,b)=>a.price-b.price);
- if(sort==="high")list.sort((a,b)=>b.price-a.price);
- if(sort==="discount")list.sort((a,b)=>(1-b.price/b.old)-(1-a.price/a.old));
- if(sort==="name")list.sort((a,b)=>a.title.localeCompare(b.title));
- $("count").textContent=`${list.length} products`;
- $("listtitle").textContent=active==="All"?"🔥 All product ideas":active;
- const visible=list.slice(0,page*pageSize);
- $("products").innerHTML=visible.length?visible.map(card).join(""):'<div style="grid-column:1/-1;padding:30px">No products found. Try another search.</div>';
- $("more").classList.toggle("hidden",visible.length>=list.length);
- $("favcount").textContent=favorites.length;
- $("comparecount").textContent=comparison.length;
- $("total").textContent=products.length;
+
+function addToCart(id) {
+  const p = allProducts.find(item => item.id === id);
+  if (!p) return;
+  if (cart[id]) cart[id].qty++;
+  else cart[id] = {
+    id:p.id,title:p.title,price:p.price,image:p.image,
+    qty:1,category:p.category,sellerUrl:p.sellerUrl
+  };
+  persistCart();
+  notify("Added to cart: " + p.title);
 }
-function setCategory(c){active=c;page=1;buildCategories();render()}
-function loadMore(){page++;render()}
-function toggleFavorite(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];save("drahim_favorites",favorites);render();renderFavorites()}
-function renderFavorites(){$("favproducts").innerHTML=products.filter(p=>favorites.includes(p.id)).map(card).join("")||"<p>No favorites yet — tap ♡ on a product.</p>"}
-function addCompare(id){if(comparison.includes(id))return toast("Already added");if(comparison.length>=4)return toast("Compare up to 4 products");comparison.push(id);save("drahim_comparison",comparison);renderComparison();render();toast("Added to comparison")}
-function renderComparison(){
- const a=comparison.map(find).filter(Boolean);
- $("comparetable").innerHTML=a.length?
- `<tr><th>Details</th>${a.map(p=>`<th>${safe(p.title)}</th>`).join("")}</tr>
- <tr><td>Category</td>${a.map(p=>`<td>${safe(p.category)}</td>`).join("")}</tr>
- <tr><td>Store</td>${a.map(p=>`<td>${safe(p.shop)}</td>`).join("")}</tr>
- <tr><td>Example price</td>${a.map(p=>`<td>${money(p.price)}</td>`).join("")}</tr>
- <tr><td>Previous example</td>${a.map(p=>`<td>${money(p.old)}</td>`).join("")}</tr>
- <tr><td>Remove</td>${a.map(p=>`<td><button class="btn" onclick="removeCompare(${p.id})">Remove</button></td>`).join("")}</tr>`:"<tr><td>Add products using Compare.</td></tr>";
+
+function changeCartQty(id, amount) {
+  if (!cart[id]) return;
+  cart[id].qty += amount;
+  if (cart[id].qty <= 0) delete cart[id];
+  persistCart();
+  showCart();
 }
-function removeCompare(id){comparison=comparison.filter(x=>x!==id);save("drahim_comparison",comparison);renderComparison();render()}
-function clearComparison(){comparison=[];save("drahim_comparison",comparison);renderComparison();render()}
-function viewProduct(id){recent=[id,...recent.filter(x=>x!==id)].slice(0,8);save("drahim_recent",recent);renderRecent();toast("Saved to recently viewed")}
-function renderRecent(){$("recent").innerHTML=recent.map(find).filter(Boolean).map(card).join("")||'<p class="muted">Products you view will appear here.</p>'}
-function showPanel(id){
- ["favorites","comparison"].forEach(x=>$(x).classList.toggle("hidden",x!==id));
- if(id==="favorites")renderFavorites();if(id==="comparison")renderComparison();
- if(id==="home"){window.scrollTo({top:450,behavior:"smooth"});return}
- $(id).scrollIntoView({behavior:"smooth"});
+
+function removeFromCart(id) {
+  delete cart[id];
+  persistCart();
+  showCart();
 }
-function toggleTheme(){document.body.classList.toggle("light");save("drahim_light",document.body.classList.contains("light"))}
-function toggleLanguage(){
- lang=lang==="en"?"ar":"en";document.documentElement.dir=lang==="ar"?"rtl":"ltr";
- $("languageBtn").textContent=lang==="ar"?"English":"عربي";
- $("heroTitle").innerHTML=lang==="ar"?"اكتشف عروضك.<br><em>وتسوق بذكاء.</em>":"Find your next deal.<br><em>Shop smarter.</em>";
- $("heroText").textContent=lang==="ar"?"800 فكرة منتج في 10 فئات مع صور خاصة بالمنتجات والبحث والمقارنة. الأسعار توضيحية.":"800 product ideas, 10 categories, product-specific pictures, search, favorites and comparisons — all in one place.";
+
+function showCart() {
+  view = "cart";
+  document.getElementById("hero").classList.add("hidden");
+  document.getElementById("heading").textContent = "Your shopping cart";
+  document.getElementById("categories").innerHTML = "";
+  document.getElementById("pagination").innerHTML = "";
+
+  const main = document.getElementById("deals");
+  main.className = "";
+  const items = Object.values(cart);
+  const total = items.reduce((sum,item) => sum + item.price*item.qty, 0);
+
+  main.innerHTML = items.length ? `
+    <div class="cart-layout">
+      <section class="panel">
+        <h2>Cart items (${items.reduce((n,i)=>n+i.qty,0)})</h2>
+        ${items.map(item => `
+          <article class="cart-item">
+            <img src="${safe(item.image)}" alt="${safe(item.title)}"
+              onerror="this.style.visibility='hidden'">
+            <div class="cart-item-info">
+              <h3>${safe(item.title)}</h3>
+              <div class="price">${money(item.price)}</div>
+              <div class="qty">
+                <button onclick="changeCartQty(${item.id},-1)" aria-label="Decrease quantity">−</button>
+                <strong>${item.qty}</strong>
+                <button onclick="changeCartQty(${item.id},1)" aria-label="Increase quantity">+</button>
+              </div>
+              <button class="remove" onclick="removeFromCart(${item.id})">Remove item</button>
+            </div>
+            <strong>${money(item.price*item.qty)}</strong>
+          </article>
+        `).join("")}
+      </section>
+      <aside class="panel">
+        <h2>Order summary</h2>
+        <div class="totalrow"><span>Subtotal</span><strong>${money(total)}</strong></div>
+        <div class="totalrow"><span>Delivery / booking fees</span><span>Not included</span></div>
+        <div class="totalrow grandtotal"><strong>Total</strong><strong>${money(total)}</strong></div>
+        <p class="trust">Demo total only. Real seller prices, fees and availability must be confirmed.</p>
+        <button class="primary checkout" onclick="checkout()">Continue to checkout</button>
+        <button class="btn" style="width:100%;margin-top:10px" onclick="goHome()">Continue shopping</button>
+      </aside>
+    </div>
+  ` : `
+    <div class="empty">
+      <div style="font-size:50px">🛒</div>
+      <h2>Your cart is empty</h2>
+      <p>Find a deal you like and add it to your cart.</p>
+      <button class="primary" onclick="goHome()">Explore deals</button>
+    </div>
+  `;
+
+  window.scrollTo({top:0,behavior:"smooth"});
 }
-function renderCoupons(){
- const coupons=[["WELCOME10","Demo welcome code"],["SAVE15","Demo shopping code"],["DRAHIM5","Demo website code"]];
- $("coupons").innerHTML=coupons.map(c=>`<div class="coupon"><strong>${c[0]}</strong><p>${c[1]}</p><span class="muted">Not a verified coupon</span><br><button class="btn" style="margin-top:10px" onclick="copyCode('${c[0]}')">Copy code</button></div>`).join("");
+
+function checkout() {
+  const items = Object.values(cart);
+  if (!items.length) return notify("Your cart is empty.");
+
+  const links = items.filter(item =>
+    typeof item.sellerUrl === "string" &&
+    /^https:\/\/\S+/i.test(item.sellerUrl)
+  );
+
+  if (!links.length) {
+    notify("Demo checkout only. Add verified seller links before enabling checkout.");
+    showModal(`
+      <h2 id="modalTitle">Checkout isn't connected yet</h2>
+      <p>This demo does not accept payments or make bookings.</p>
+      <p>To enable real checkout, each offer needs a verified seller booking/order URL,
+        and payments require a secure backend and payment provider.</p>
+      <button class="primary" onclick="closeModal()">Got it</button>
+    `);
+    return;
+  }
+
+  if (items.length === 1 && links.length === 1) {
+    window.open(links[0].sellerUrl, "_blank", "noopener,noreferrer");
+  } else {
+    showModal(`
+      <h2 id="modalTitle">Choose a seller</h2>
+      <p>Your cart contains offers from different sellers. Open a seller to continue:</p>
+      ${links.map(item => `
+        <p><a href="${safe(item.sellerUrl)}" target="_blank" rel="noopener noreferrer">
+          ${safe(item.title)} — Visit seller
+        </a></p>
+      `).join("")}
+      <p>Items without a verified seller link cannot be booked yet.</p>
+      <button class="btn" onclick="closeModal()">Close</button>
+    `);
+  }
 }
-async function copyCode(c){try{await navigator.clipboard.writeText(c);toast("Copied "+c)}catch{toast("Demo code: "+c)}}
-$("alertform").addEventListener("submit",e=>{
- e.preventDefault();const id=Number($("alertproduct").value),target=Number($("targetprice").value);
- if(target<=0)return;alerts.push({id,target});save("drahim_alerts",alerts);$("targetprice").value="";renderAlerts();toast("Target saved");
-});
-function renderAlerts(){
- $("alerts").innerHTML=alerts.map((a,i)=>`<div class="review"><strong>${safe(find(a.id)?.title||"Product")}</strong> — target ${money(a.target)} <button class="btn" onclick="removeAlert(${i})">Remove</button></div>`).join("")||'<p class="muted">No targets saved.</p>';
+
+function toggleFavorite(id) {
+  favorites = favorites.includes(id)
+    ? favorites.filter(item => item !== id)
+    : [...favorites,id];
+  saveJSON("drahim_favorites", favorites);
+  if (view === "favorites") showFavorites();
+  else renderProducts();
 }
-function removeAlert(i){alerts.splice(i,1);save("drahim_alerts",alerts);renderAlerts()}
-$("reviewform").addEventListener("submit",e=>{
- e.preventDefault();reviews.push({name:$("reviewname").value.trim()||"Guest",rating:Number($("rating").value),text:$("reviewtext").value.trim(),date:new Date().toLocaleDateString()});
- save("drahim_reviews",reviews);$("reviewtext").value="";renderReviews();toast("Review saved locally");
-});
-function renderReviews(){
- $("reviews").innerHTML=reviews.slice().reverse().slice(0,30).map(r=>`<div class="review"><strong>${safe(r.name)} · ${"★".repeat(r.rating)}</strong><p>${safe(r.text)}</p><span class="muted">${safe(r.date)}</span></div>`).join("")||'<p class="muted">No reviews yet.</p>';
+
+function showFavorites() {
+  view = "favorites";
+  document.getElementById("hero").classList.add("hidden");
+  document.getElementById("heading").textContent = "Saved deals";
+  document.getElementById("categories").innerHTML = "";
+  document.getElementById("pagination").innerHTML = "";
+
+  const saved = allProducts.filter(p => favorites.includes(p.id));
+  const grid = document.getElementById("deals");
+  grid.className = "grid";
+  grid.innerHTML = saved.length ? saved.map(p => `
+    <article class="card">
+      <div class="photo"><img src="${safe(p.image)}" alt="${safe(p.title)}" loading="lazy"></div>
+      <div class="cardbody">
+        <div class="category-label">${safe(p.category)}</div>
+        <h3>${safe(p.title)}</h3>
+        <div class="price">${money(p.price)}</div>
+        <div class="cardbuttons" style="margin-top:12px">
+          <button class="btn" onclick="toggleFavorite(${p.id})">♥ Unsave</button>
+          <button class="primary" onclick="addToCart(${p.id})">Add to cart</button>
+        </div>
+      </div>
+    </article>
+  `).join("") : `<div class="empty"><h2>No saved deals yet</h2>
+    <button class="primary" onclick="goHome()">Explore deals</button></div>`;
 }
-$("addform").addEventListener("submit",e=>{
- e.preventDefault();
- const title=$("newtitle").value.trim(),shop=$("newshop").value.trim(),category=$("newcategory").value;
- const price=Number($("newprice").value),old=Number($("newold").value),url=$("newurl").value.trim(),image=$("newimage").value.trim();
- if(!title||!shop||price<=0||old<price||!url.startsWith("https://"))return toast("Check prices and HTTPS link");
- if(image&&!image.startsWith("https://"))return toast("Image URL must use HTTPS");
- products.unshift({id:Math.max(0,...products.map(p=>p.id))+1,title,shop,category,price,old,url,image:image||imageFor(title,category),emirate:"All",generated:false});
- save("drahim_products",products);e.target.reset();buildCategories();render();toast("Product added");
-});
-function exportCatalogue(){
- const blob=new Blob([JSON.stringify(products,null,2)],{type:"application/json"});
- const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="drahim-catalogue.json";a.click();URL.revokeObjectURL(a.href);
+
+function showDetails(id) {
+  const p = allProducts.find(item => item.id === id);
+  if (!p) return;
+  showModal(`
+    <img src="${safe(p.image)}" alt="${safe(p.title)}"
+      style="width:100%;max-height:230px;object-fit:cover;border-radius:12px">
+    <p class="category-label">${safe(p.category)} · DEMO</p>
+    <h2 id="modalTitle">${safe(p.title)}</h2>
+    <p>${safe(p.description)}</p>
+    <h2 class="price">${money(p.price)}</h2>
+    <p class="trust">Sample price only. This listing has not been verified with a seller.</p>
+    <button class="primary" style="width:100%" onclick="closeModal();addToCart(${p.id})">Add to cart</button>
+    <button class="btn" style="width:100%;margin-top:8px" onclick="closeModal()">Close</button>
+  `);
 }
-function resetCatalogue(){if(confirm("Reset generated catalogue and remove custom products?")){localStorage.removeItem("drahim_products");location.reload()}}
-if(load("drahim_light",false))document.body.classList.add("light");
-buildCategories();render();renderCoupons();renderComparison();renderFavorites();renderRecent();renderAlerts();renderReviews();
+
+function showModal(html) {
+  document.getElementById("modal").innerHTML = html;
+  document.getElementById("modalBackdrop").style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("modalBackdrop").style.display = "none";
+}
+function backdropClose(event) {
+  if (event.target.id === "modalBackdrop") closeModal();
+}
+
+function notify(message) {
+  const el = document.getElementById("toast");
+  el.textContent = message;
+  el.style.display = "block";
+  clearTimeout(window.drahimToastTimer);
+  window.drahimToastTimer = setTimeout(() => el.style.display="none", 2400);
+}
+
+function toggleTheme() {
+  theme = theme === "dark" ? "light" : "dark";
+  document.body.classList.toggle("dark", theme === "dark");
+  localStorage.setItem("drahim_theme", theme);
+}
+
+function goHome() {
+  view = "home";
+  currentCategory = "All deals";
+  page = 1;
+  document.getElementById("hero").classList.remove("hidden");
+  document.getElementById("search").value = "";
+  renderCategories();
+  renderProducts();
+  document.getElementById("heading").textContent = "Explore deals";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+document.body.classList.toggle("dark", theme === "dark");
+renderCategories();
+renderProducts();
+updateCartCount();
 </script>
 </body>
 </html>
