@@ -3,88 +3,63 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#082f25">
 <title>Drahim UAE — Discover Better Deals</title>
 <style>
-:root{--bg:#f5f7f4;--surface:#fff;--text:#18231d;--muted:#748078;--green:#08734c;--green2:#0a5138;--line:#e0e8e1;--shadow:0 8px 28px #163c2410}
-body.dark{--bg:#101813;--surface:#19251e;--text:#eff6f0;--muted:#a0afa4;--green:#48c78e;--green2:#153d2c;--line:#2b3b30;--shadow:0 8px 28px #0003}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;transition:background .2s}
-button,input,select{font:inherit}
-button{cursor:pointer}
-header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--line)}
+:root{--bg:#f5f7f4;--surface:#fff;--text:#18231d;--muted:#748078;--green:#08734c;--line:#e0e8e1;--shadow:0 8px 28px #163c2410}
+body.dark{--bg:#101813;--surface:#19251e;--text:#eff6f0;--muted:#a0afa4;--green:#48c78e;--line:#2b3b30;--shadow:0 8px 28px #0003}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;transition:background .2s}
+button,input,select{font:inherit}button{cursor:pointer}header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--line)}
 .nav{max-width:1400px;margin:auto;padding:14px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.logo{font-size:24px;font-weight:900;letter-spacing:-1px;color:var(--green);white-space:nowrap}
-.logo span{color:var(--text)}
+.logo{font-size:24px;font-weight:900;letter-spacing:-1px;color:var(--green);white-space:nowrap}.logo span{color:var(--text)}
 .search{flex:1;min-width:180px;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)}
 .btn,.primary{border:1px solid var(--line);border-radius:10px;padding:10px 13px;background:var(--surface);color:var(--text)}
-.primary{background:var(--green);border-color:var(--green);color:white;font-weight:750}
-.primary:hover{filter:brightness(.92)}
+.primary{background:var(--green);border-color:var(--green);color:white;font-weight:750}.primary:hover{filter:brightness(.92)}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #39b97f;outline-offset:2px}
-.hero{max-width:1400px;margin:24px auto;padding:42px 28px;border-radius:22px;background:linear-gradient(125deg,#073d2c,#12734d);color:white;position:relative;overflow:hidden}
-.hero h1{font-size:clamp(32px,5vw,58px);margin:0 0 12px;letter-spacing:-2px}
-.hero p{max-width:650px;line-height:1.7;color:#e2f4e8}
+.hero{max-width:1400px;margin:24px auto;padding:42px 28px;border-radius:22px;background:linear-gradient(125deg,#073d2c,#12734d);color:white;overflow:hidden}
+.hero h1{font-size:clamp(32px,5vw,58px);margin:0 0 12px;letter-spacing:-2px}.hero p{max-width:650px;line-height:1.7;color:#e2f4e8}
 .tag{display:inline-block;border:1px solid #ffffff55;border-radius:99px;padding:7px 11px;font-size:12px;margin-bottom:15px}
-.wrap{max-width:1400px;margin:auto;padding:0 22px 50px}
-.trust{font-size:12px;color:var(--muted);margin:15px 0;line-height:1.6}
-.categories{display:flex;gap:9px;overflow-x:auto;padding:8px 0 18px}
-.chip{white-space:nowrap;border:1px solid var(--line);border-radius:99px;padding:10px 15px;background:var(--surface);color:var(--text)}
+.wrap{max-width:1400px;margin:auto;padding:0 22px 50px}.trust{font-size:12px;color:var(--muted);margin:15px 0;line-height:1.6}
+.categories{display:flex;gap:9px;overflow-x:auto;padding:8px 0 18px}.chip{white-space:nowrap;border:1px solid var(--line);border-radius:99px;padding:10px 15px;background:var(--surface);color:var(--text)}
 .chip.active{background:var(--green);border-color:var(--green);color:white}
-.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0}
-.sectionhead h2{margin:0}
-.controls{display:flex;gap:9px;flex-wrap:wrap}
-.controls select{padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0}.sectionhead h2{margin:0}
+.controls{display:flex;gap:9px;flex-wrap:wrap}.controls select{padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .card{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-.photo{position:relative;background:var(--line);aspect-ratio:4/3}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo{position:relative;background:var(--line);aspect-ratio:4/3}.photo img{width:100%;height:100%;object-fit:cover;display:block}
 .heart{position:absolute;right:10px;top:10px;background:white;color:#25352b;border:0;border-radius:50%;width:38px;height:38px;font-size:20px}
-.cardbody{padding:14px}
-.category-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--green);font-weight:800}
-.card h3{font-size:16px;line-height:1.35;min-height:42px;margin:8px 0}
-.desc{font-size:12px;color:var(--muted);line-height:1.5;min-height:35px}
-.prices{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:12px 0}
-.price{font-size:21px;font-weight:850;color:var(--green)}
-.old{font-size:13px;color:var(--muted);text-decoration:line-through}
-.demo{font-size:10px;border-radius:5px;background:#fff0ce;color:#754b00;padding:4px 6px;font-weight:700}
-.cardbuttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.cardbuttons button{font-size:12px;padding:10px 6px}
-.cardbuttons .wide{grid-column:1/-1}
+.cardbody{padding:14px}.category-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--green);font-weight:800}
+.card h3{font-size:16px;line-height:1.35;min-height:42px;margin:8px 0}.desc{font-size:12px;color:var(--muted);line-height:1.5;min-height:35px}
+.prices{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:12px 0}.price{font-size:21px;font-weight:850;color:var(--green)}
+.old{font-size:13px;color:var(--muted);text-decoration:line-through}.demo{font-size:10px;border-radius:5px;background:#fff0ce;color:#754b00;padding:4px 6px;font-weight:700}
+.cardbuttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}.cardbuttons button,.cardbuttons a{font-size:12px;padding:10px 6px}.wide{grid-column:1/-1}
 .empty{padding:55px 20px;text-align:center;border:1px dashed var(--line);border-radius:18px}
 .cart-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:22px;align-items:start}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
 .cart-item{display:flex;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
-.cart-item img{width:90px;height:90px;object-fit:cover;border-radius:12px}
-.cart-item-info{flex:1;min-width:0}
-.cart-item h3{font-size:15px;margin:0 0 8px}
-.qty{display:flex;align-items:center;gap:10px;margin-top:10px}
-.qty button{min-width:32px;padding:6px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}
-.remove{border:0;background:transparent;color:#d45b5b;margin-top:8px;padding:4px}
-.totalrow{display:flex;justify-content:space-between;gap:12px;margin:16px 0}
-.grandtotal{border-top:1px solid var(--line);padding-top:17px;font-size:20px}
-.checkout{width:100%;padding:14px;margin-top:10px}
+.cart-item img{width:90px;height:90px;object-fit:cover;border-radius:12px}.cart-item-info{flex:1;min-width:0}.cart-item h3{font-size:15px;margin:0 0 8px}
+.qty{display:flex;align-items:center;gap:10px;margin-top:10px}.qty button{min-width:32px;padding:6px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}
+.remove{border:0;background:transparent;color:#d45b5b;margin-top:8px;padding:4px}.totalrow{display:flex;justify-content:space-between;gap:12px;margin:16px 0}
+.grandtotal{border-top:1px solid var(--line);padding-top:17px;font-size:20px}.checkout{width:100%;padding:14px;margin-top:10px}
 footer{border-top:1px solid var(--line);padding:30px 22px;color:var(--muted);font-size:13px;text-align:center}
 .modal-backdrop{position:fixed;inset:0;background:#0009;z-index:30;display:none;align-items:center;justify-content:center;padding:18px}
 .modal{background:var(--surface);color:var(--text);border-radius:18px;padding:24px;width:min(500px,100%);max-height:90vh;overflow:auto}
 .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#173b2b;color:white;padding:13px 18px;border-radius:12px;z-index:50;display:none;max-width:90%;text-align:center}
-.hidden{display:none!important}
-a{color:var(--green)}
+.hidden{display:none!important}a{color:var(--green)}
 @media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:700px){.nav{padding:12px}.logo{font-size:21px}.search{order:3;flex-basis:100%}.hero{margin:14px;padding:28px 20px}.wrap{padding:0 13px 35px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cardbody{padding:10px}.card h3{font-size:14px}.cardbuttons{grid-template-columns:1fr}.cardbuttons .wide{grid-column:auto}.cart-layout{grid-template-columns:1fr}.cart-item img{width:70px;height:70px}}
+@media(max-width:700px){.nav{padding:12px}.logo{font-size:21px}.search{order:3;flex-basis:100%}.hero{margin:14px;padding:28px 20px}.wrap{padding:0 13px 35px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cardbody{padding:10px}.card h3{font-size:14px}.cardbuttons{grid-template-columns:1fr}.wide{grid-column:auto}.cart-layout{grid-template-columns:1fr}.cart-item img{width:70px;height:70px}}
 @media(max-width:360px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-<nav class="nav" aria-label="Main navigation">
+<header><nav class="nav" aria-label="Main navigation">
 <a href="#" class="logo" onclick="goHome();return false" style="text-decoration:none">Drahim <span>UAE</span></a>
 <input class="search" id="search" placeholder="Search food, hotels, electronics..." aria-label="Search deals" oninput="page=1;renderProducts()">
 <button class="btn" onclick="showFavorites()">♡ Saved</button>
 <button class="btn" onclick="showCart()">🛒 Cart <span id="cartCount">0</span></button>
 <button class="btn" onclick="toggleTheme()" aria-label="Toggle theme">◐</button>
-</nav>
-</header>
+</nav></header>
 
 <section class="hero" id="hero">
 <span class="tag">DISCOVER • SAVE • ENJOY</span>
@@ -94,174 +69,106 @@ a{color:var(--green)}
 </section>
 
 <main class="wrap" id="main">
-<div class="trust">DEMO PREVIEW · Prices are examples, not verified live offers. Photos illustrate categories and may not show the exact item.</div>
-<div class="sectionhead">
-<h2 id="heading">Explore deals</h2>
-<div class="controls">
-<select id="sort" onchange="page=1;renderProducts()" aria-label="Sort deals">
-<option value="featured">Featured</option>
-<option value="low">Price: low to high</option>
-<option value="high">Price: high to low</option>
-<option value="name">Name: A to Z</option>
-</select>
-</div>
-</div>
+<div class="trust">DEMO PREVIEW · Prices are examples, not verified live offers. Photos are illustrative and may not show the exact product.</div>
+<div class="sectionhead"><h2 id="heading">Explore deals</h2>
+<div class="controls"><select id="sort" onchange="page=1;renderProducts()" aria-label="Sort deals">
+<option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name: A to Z</option>
+</select></div></div>
 <div class="categories" id="categories"></div>
 <div id="deals" class="grid" aria-live="polite"></div>
 <div id="pagination" style="text-align:center;padding:25px"></div>
 </main>
-
-<footer>
-<strong>Drahim UAE</strong> · Deal discovery demo<br><br>
-Check seller, availability, actual price and terms before purchasing. This preview does not process payments or make bookings.
-</footer>
-
-<div class="modal-backdrop" id="modalBackdrop" onclick="backdropClose(event)">
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div>
-</div>
+<footer><strong>Drahim UAE</strong> · Deal discovery demo<br><br>Check seller, availability, actual price and terms before purchasing. This preview does not process payments or make bookings.</footer>
+<div class="modal-backdrop" id="modalBackdrop" onclick="backdropClose(event)"><div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div></div>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
 "use strict";
 
 const categories=[
-{name:"All deals",icon:"✨"},
-{name:"Restaurants",icon:"🍽️"},
-{name:"Food & Delivery",icon:"🍕"},
-{name:"Hotels",icon:"🏨"},
-{name:"Electronics",icon:"🎧"},
-{name:"Fashion",icon:"👟"},
-{name:"Beauty",icon:"💆"},
-{name:"Activities",icon:"🎟️"},
-{name:"Home",icon:"🏠"},
-{name:"Travel",icon:"✈️"},
-{name:"Fitness",icon:"🏋️"}
+{name:"All deals",icon:"✨"},{name:"Restaurants",icon:"🍽️"},
+{name:"Food & Delivery",icon:"🍕"},{name:"Hotels",icon:"🏨"},
+{name:"Electronics",icon:"🎧"},{name:"Fashion",icon:"👟"},
+{name:"Beauty",icon:"💆"},{name:"Activities",icon:"🎟️"},
+{name:"Home",icon:"🏠"},{name:"Travel",icon:"✈️"},{name:"Fitness",icon:"🏋️"}
 ];
 
 const catalog={
-"Restaurants":[
-["Steakhouse Dinner","steak dinner restaurant"],
-["Italian Pasta Special","italian pasta"],
-["Sushi Sharing Platter","sushi platter"],
-["Family Grill Meal","mixed grill food"],
-["Rooftop Restaurant Dining","rooftop restaurant"],
-["Arabic Breakfast","arabic breakfast"],
-["Seafood Dinner","seafood restaurant"],
-["Burger Combo","gourmet burger"],
-["Indian Curry Meal","indian curry"],
-["Cafe Brunch","cafe brunch"]
-],
-"Food & Delivery":[
-["Pizza Bundle","fresh pizza"],["Chicken Meal Box","fried chicken meal"],
-["Dessert Box","dessert pastries"],["Fresh Juice Pack","fresh fruit juice"],
-["Sushi Delivery Set","sushi takeout"],["Family Meal Bundle","family takeaway meal"],
-["Bakery Treat Box","bakery bread pastries"],["Coffee & Pastry","coffee croissant"],
-["Healthy Lunch Bowl","healthy salad bowl"],["Ice Cream Pack","ice cream"]
-],
-"Hotels":[
-["Luxury City Hotel Stay","luxury hotel room"],["Beach Resort Weekend","beach resort hotel"],
-["Family Staycation","family hotel pool"],["Desert Resort Escape","desert luxury resort"],
-["Downtown Hotel Night","modern city hotel"],["Hotel Breakfast Package","hotel breakfast buffet"],
-["Pool Day Pass","hotel swimming pool"],["Spa Hotel Package","hotel spa"],
-["Romantic Stay Package","luxury hotel suite"],["Waterfront Hotel Stay","waterfront hotel"]
-],
-"Electronics":[
-["Wireless Headphones","wireless headphones"],["Bluetooth Speaker","portable bluetooth speaker"],
-["Smart Watch","smart watch"],["Gaming Mouse","gaming mouse"],
-["Mechanical Keyboard","mechanical keyboard"],["Phone Charger","usb c charger"],
-["Laptop Stand","laptop stand desk"],["Wireless Earbuds","wireless earbuds"],
-["Power Bank","portable power bank"],["Gaming Headset","gaming headset"]
-],
-"Fashion":[
-["Everyday Sneakers","white sneakers"],["Casual Hoodie","casual hoodie"],
-["Classic Backpack","backpack"],["Sports T-shirt","sports t shirt"],
-["Running Shoes","running shoes"],["Casual Cap","baseball cap"],
-["Everyday Watch","minimal wrist watch"],["Travel Bag","travel duffel bag"],
-["Comfort Slides","comfortable slides"],["Sports Jacket","sports jacket"]
-],
-"Beauty":[
-["Skincare Gift Set","skincare products"],["Spa Experience","spa treatment room"],
-["Hair Styling Package","hair salon"],["Nail Care Package","manicure salon"],
-["Facial Care Session","facial spa"],["Perfume Gift Set","perfume bottles"],
-["Self Care Bundle","self care products"],["Barber Service","modern barber shop"],
-["Beauty Essentials","beauty products"],["Relaxation Massage","spa relaxation room"]
-],
-"Activities":[
-["Aquarium Visit","large aquarium"],["Theme Park Tickets","theme park rides"],
-["Indoor Adventure","indoor adventure park"],["Cinema Night","cinema seats"],
-["Bowling Session","bowling alley"],["Escape Room Game","escape room"],
-["Water Park Day","water park slides"],["Museum Visit","modern museum"],
-["Desert Safari","desert safari dunes"],["Family Activity Pass","family entertainment"]
-],
-"Home":[
-["Modern Table Lamp","modern table lamp"],["Desk Organizer","desk organizer"],
-["Kitchen Essentials","kitchen utensils"],["Soft Cushion Set","decorative cushions"],
-["Coffee Maker","coffee maker machine"],["Storage Basket Set","storage baskets"],
-["Bed Linen Set","neutral bed linen"],["Plant Pot Set","indoor plant pots"],
-["Water Bottle","reusable water bottle"],["LED Desk Light","led desk lamp"]
-],
-"Travel":[
-["Weekend City Escape","city travel skyline"],["Desert Tour Package","desert tour"],
-["City Sightseeing Pass","city sightseeing bus"],["Boat Cruise Experience","boat cruise marina"],
-["Mountain Day Trip","mountains landscape"],["Airport Transfer","airport car transfer"],
-["Guided Walking Tour","guided city walking tour"],["Scenic Boat Trip","scenic boat trip"],
-["Cultural Tour","historic cultural district"],["Adventure Day Out","outdoor adventure travel"]
-],
-"Fitness":[
-["Gym Day Pass","modern fitness gym"],["Yoga Class Pack","yoga studio"],
-["Pilates Session","pilates studio"],["Swimming Pass","indoor swimming pool"],
-["Fitness Equipment Set","fitness equipment"],["Sports Class","sports training class"],
-["Boxing Training","boxing gym"],["Dance Class","dance studio"],
-["Tennis Court Session","tennis court"],["Wellness Class Pack","wellness studio"]
-]
+"Restaurants":[["Steakhouse Dinner","steak"],["Italian Pasta Special","pasta"],["Sushi Sharing Platter","sushi"],["Family Grill Meal","grill"],["Rooftop Restaurant Dining","rooftop"],["Arabic Breakfast","breakfast"],["Seafood Dinner","seafood"],["Burger Combo","burger"],["Indian Curry Meal","curry"],["Cafe Brunch","brunch"]],
+"Food & Delivery":[["Pizza Bundle","pizza"],["Chicken Meal Box","chicken"],["Dessert Box","dessert"],["Fresh Juice Pack","juice"],["Sushi Delivery Set","sushi"],["Family Meal Bundle","family"],["Bakery Treat Box","bakery"],["Coffee & Pastry","coffee"],["Healthy Lunch Bowl","salad"],["Ice Cream Pack","icecream"]],
+"Hotels":[["Luxury City Hotel Stay","hotel"],["Beach Resort Weekend","resort"],["Family Staycation","hotelpool"],["Desert Resort Escape","desertresort"],["Downtown Hotel Night","cityhotel"],["Hotel Breakfast Package","buffet"],["Pool Day Pass","pool"],["Spa Hotel Package","hotelspa"],["Romantic Stay Package","suite"],["Waterfront Hotel Stay","waterfront"]],
+"Electronics":[["Wireless Headphones","headphones"],["Bluetooth Speaker","speaker"],["Smart Watch","watch"],["Gaming Mouse","mouse"],["Mechanical Keyboard","keyboard"],["Phone Charger","charger"],["Laptop Stand","laptopstand"],["Wireless Earbuds","earbuds"],["Power Bank","powerbank"],["Gaming Headset","headset"]],
+"Fashion":[["Everyday Sneakers","sneakers"],["Casual Hoodie","hoodie"],["Classic Backpack","backpack"],["Sports T-shirt","tshirt"],["Running Shoes","runningshoes"],["Casual Cap","cap"],["Everyday Watch","fashionwatch"],["Travel Bag","travelbag"],["Comfort Slides","slides"],["Sports Jacket","jacket"]],
+"Beauty":[["Skincare Gift Set","skincare"],["Spa Experience","spa"],["Hair Styling Package","hairsalon"],["Nail Care Package","nails"],["Facial Care Session","facial"],["Perfume Gift Set","perfume"],["Self Care Bundle","selfcare"],["Barber Service","barber"],["Beauty Essentials","beauty"],["Relaxation Massage","massage"]],
+"Activities":[["Aquarium Visit","aquarium"],["Theme Park Tickets","themepark"],["Indoor Adventure","adventure"],["Cinema Night","cinema"],["Bowling Session","bowling"],["Escape Room Game","escape"],["Water Park Day","waterpark"],["Museum Visit","museum"],["Desert Safari","safari"],["Family Activity Pass","familyfun"]],
+"Home":[["Modern Table Lamp","lamp"],["Desk Organizer","organizer"],["Kitchen Essentials","kitchen"],["Soft Cushion Set","cushions"],["Coffee Maker","coffeemaker"],["Storage Basket Set","storage"],["Bed Linen Set","bedding"],["Plant Pot Set","plants"],["Water Bottle","bottle"],["LED Desk Light","desk light"]],
+"Travel":[["Weekend City Escape","city"],["Desert Tour Package","desert"],["City Sightseeing Pass","sightseeing"],["Boat Cruise Experience","boat"],["Mountain Day Trip","mountains"],["Airport Transfer","airport"],["Guided Walking Tour","walking"],["Scenic Boat Trip","scenicboat"],["Cultural Tour","culture"],["Adventure Day Out","outdoor"]],
+"Fitness":[["Gym Day Pass","gym"],["Yoga Class Pack","yoga"],["Pilates Session","pilates"],["Swimming Pass","swimming"],["Fitness Equipment Set","equipment"],["Sports Class","sports"],["Boxing Training","boxing"],["Dance Class","dance"],["Tennis Court Session","tennis"],["Wellness Class Pack","wellness"]]
 };
 
-/* Curated image IDs grouped by category, instead of reusing restaurant photos everywhere.
-   These are illustrative stock photos, not exact product or seller photos. */
-const categoryImages={
-"Restaurants":[
-"photo-1517248135467-4c7edcad34c4","photo-1514933651103-005eec06c04b",
-"photo-1555396273-367ea4eb4db5","photo-1552566626-52f8b828add9"
-],
-"Food & Delivery":[
-"photo- pizza","photo- pizza"
-],
-"Hotels":[
-"photo-1566073771259-6a8506099945","photo-1571896349842-33c89424de2d",
-"photo-1564501049412-61c2a3083791","photo-1542314831-068cd1dbfeeb"
-],
-"Electronics":[
-"photo-1505740420928-5e560c06d30e","photo-1608043152269-423dbba4e7e1",
-"photo-1523275335684-37898b6baf30","photo-1527814050087-3793815479db",
-"photo-1587829741301-dc798b83add3","photo-1583394838336-acd977736f90"
-],
-"Fashion":[
-"photo-1542291026-7eec264c27ff","photo-1521572163474-6864f9cf17ab",
-"photo-1553062407-98eeb64c6a62","photo-1543163521-1bf539c55dd2"
-],
-"Beauty":[
-"photo-1608248543803-ba4f8c70ae0b","photo-1596462502278-27bfdc403348",
-"photo-1522335789203-aabd1fc54bc9","photo-1598440947619-2c35fc9aa908"
-],
-"Activities":[
-"photo-1511512578047-dfb367046420","photo-1519608487953-e999c86e7455",
-"photo-1533174072545-7a4b6ad7a6c3","photo-1492684223066-81342ee5ff30"
-],
-"Home":[
-"photo-1507473885765-e6ed057f782c","photo-1555041469-a586c61ea9bc",
-"photo-1494438639946-1ebd1d20bf85","photo-1556911220-bff31c812dba"
-],
-"Travel":[
-"photo-1464822759023-fed622ff2c3b","photo-1500530855697-b586d89ba3ee",
-"photo-1476514525535-07fb3b4ae5f1","photo-1533105079780-92b9be482077"
-],
-"Fitness":[
-"photo-1534438327276-14e5300c3a48","photo-1518611012118-696072aa579a",
-"photo-1517836357463-d25dfeac3438","photo-1546483875-ad9014c88eba"
-]
+/* Separate image for every food type; other categories also have dedicated image sets.
+   Unsplash photos are illustrative stock images, not seller-verified product photos. */
+const photoIDs={
+pizza:["photo-1604382355076-af4b0eb60143","photo-1579751626657-72bc17010498"],
+chicken:["photo-1626082927389-6cd097cdc6ec","photo-1562967914-608f82629710"],
+dessert:["photo-1488477181946-6428a0291777","photo-1578985545062-69928b1d9587"],
+juice:["photo-1534353473418-4cfa6c56fd38","photo-1600271886742-f049cd451bba"],
+sushi:["photo-1579871494447-9811cf80d66c","photo-1553621042-f6e147245754"],
+family:["photo-1547592180-85f173990554","photo-1512621776951-a57141f2eefd"],
+bakery:["photo-1509440159596-0249088772ff","photo-1549931319-a545dcf3bc73"],
+coffee:["photo-1461023058943-07fcbe16d735","photo-1509042239860-f550ce710b93"],
+salad:["photo-1546069901-ba9599a7e63c","photo-1512621776951-a57141f2eefd"],
+icecream:["photo-1563805042-7684c019e1cb","photo-1497034825429-c343d7c6a68f"],
+steak:["photo-1544025162-d76694265947","photo-1558030006-450675393462"],
+pasta:["photo-1473093295043-cdd812d0e601","photo-1551183053-bf91a1d81141"],
+grill:["photo-1544025162-d76694265947"],rooftop:["photo-1517248135467-4c7edcad34c4"],
+breakfast:["photo-1533089860892-a7c6f0a88666"],seafood:["photo-1559737558-2f5a35f4523b"],
+burger:["photo-1568901346375-23c9450c58cd"],curry:["photo-1565557623262-b51c2513a641"],
+brunch:["photo-1554118811-1e0d58224f24"],
+hotel:["photo-1566073771259-6a8506099945","photo-1571896349842-33c89424de2d"],
+resort:["photo-1571896349842-33c89424de2d"],hotelpool:["photo-1575429198097-0414ec08e8cd"],
+desertresort:["photo-1514282401047-d79a71a590e8"],cityhotel:["photo-1542314831-068cd1dbfeeb"],
+buffet:["photo-1555396273-367ea4eb4db5"],pool:["photo-1575429198097-0414ec08e8cd"],
+hotelspa:["photo-1540555700478-4be289fbecef"],suite:["photo-1564501049412-61c2a3083791"],
+waterfront:["photo-1566073771259-6a8506099945"],
+headphones:["photo-1505740420928-5e560c06d30e","photo-1546435770-a3e426bf472b"],
+speaker:["photo-1608043152269-423dbba4e7e1"],watch:["photo-1523275335684-37898b6baf30"],
+mouse:["photo-1527814050087-3793815479db"],keyboard:["photo-1587829741301-dc798b83add3"],
+charger:["photo-1583863788434-e58a36330cf0"],laptopstand:["photo-1527864550417-7fd91fc51a46"],
+earbuds:["photo-1606220945770-b5b6c2c55bf1"],powerbank:["photo-1609592806596-b43bada2f3a1"],
+headset:["photo-1599669454699-248893623440"],
+sneakers:["photo-1542291026-7eec264c27ff"],hoodie:["photo-1556821840-3a63f95609a7"],
+backpack:["photo-1553062407-98eeb64c6a62"],tshirt:["photo-1521572163474-6864f9cf17ab"],
+runningshoes:["photo-1542291026-7eec264c27ff"],cap:["photo-1588850561407-ed78c282e89b"],
+fashionwatch:["photo-1523275335684-37898b6baf30"],travelbag:["photo-1553062407-98eeb64c6a62"],
+slides:["photo-1543163521-1bf539c55dd2"],jacket:["photo-1551028719-00167b16eac5"],
+skincare:["photo-1608248543803-ba4f8c70ae0b"],spa:["photo-1540555700478-4be289fbecef"],
+hairsalon:["photo-1560066984-138dadb4c035"],nails:["photo-1604654894610-df63bc536371"],
+facial:["photo-1570172619644-dfd03ed5d881"],perfume:["photo-1541643600914-78b084683601"],
+selfcare:["photo-1608248543803-ba4f8c70ae0b"],barber:["photo-1503951914875-452162b0f3f1"],
+beauty:["photo-1596462502278-27bfdc403348"],massage:["photo-1540555700478-4be289fbecef"],
+aquarium:["photo-1524704654690-b56c05c78a00"],themepark:["photo-1513883049090-d0b7439799bf"],
+adventure:["photo-1533174072545-7a4b6ad7a6c3"],cinema:["photo-1489599849927-2ee91cede3ba"],
+bowling:["photo-1514933651103-005eec06c04b"],escape:["photo-1511512578047-dfb367046420"],
+waterpark:["photo-1530549387789-4c1017266635"],museum:["photo-1565060169194-19fabf63012b"],
+safari:["photo-1516026672322-bc52d61a55d5"],familyfun:["photo-1492684223066-81342ee5ff30"],
+lamp:["photo-1507473885765-e6ed057f782c"],organizer:["photo-1494438639946-1ebd1d20bf85"],
+kitchen:["photo-1556911220-bff31c812dba"],cushions:["photo-1555041469-a586c61ea9bc"],
+coffeemaker:["photo-1495474472287-4d71bcdd2085"],storage:["photo-1600210492486-724fe5c67fb0"],
+bedding:["photo-1631049307264-da0ec9d70304"],plants:["photo-1485955900006-10f4d324d411"],
+bottle:["photo-1602143407151-7111542de6e8"],"desk light":["photo-1507473885765-e6ed057f782c"],
+city:["photo-1519501025264-65ba15a82390"],desert:["photo-1509316785289-025f5b846b35"],
+sightseeing:["photo-1533105079780-92b9be482077"],boat:["photo-1544551763-46a013bb70d5"],
+mountains:["photo-1464822759023-fed622ff2c3b"],airport:["photo-1436491865332-7a61a109cc05"],
+walking:["photo-1519501025264-65ba15a82390"],scenicboat:["photo-1500375592092-40eb2168fd21"],
+culture:["photo-1519608487953-e999c86e7455"],outdoor:["photo-1470770841072-f978cf4d019e"],
+gym:["photo-1534438327276-14e5300c3a48"],yoga:["photo- yoga"],
+pilates:["photo-1518611012118-696072aa579a"],swimming:["photo-1530549387789-4c1017266635"],
+equipment:["photo-1517836357463-d25dfeac3438"],sports:["photo-1461896836934-ffe607ba8211"],
+boxing:["photo-1549719386-74dfcbf7dbed"],dance:["photo- dance"],
+tennis:["photo- tennis"],wellness:["photo-1540555700478-4be289fbecef"]
 };
 
-/* Real store/category landing pages, not direct links to invented listings. */
 const realSites={
 "Restaurants":"https://www.talabat.com/uae",
 "Food & Delivery":"https://www.talabat.com/uae",
@@ -275,18 +182,24 @@ const realSites={
 "Fitness":"https://www.noon.com/uae-en/sports-and-outdoors/"
 };
 
+const fallbackIDs={
+yoga:"photo-1518611012118-696072aa579a",
+dance:"photo-1508700115892-45ecd05ae2ad",
+tennis:"photo-1554068865-24cecd4e34b8"
+};
+
 const AED=new Intl.NumberFormat("en-AE",{style:"currency",currency:"AED",maximumFractionDigits:2});
 const money=value=>AED.format(value);
 
-function imageFor(category,index){
- const list=categoryImages[category]||categoryImages["Home"];
+function imageFor(category,index,keyword){
+ const list=photoIDs[keyword]||photoIDs[category]||["photo-1494438639946-1ebd1d20bf85"];
  let id=list[index%list.length];
- if(id==="photo- pizza") id="photo-1604382355076-af4b0eb60143";
+ if(id==="photo- yoga"||id==="photo- dance"||id==="photo- tennis")id=fallbackIDs[keyword]||"photo-1494438639946-1ebd1d20bf85";
  return "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=800&q=80";
 }
+
 let allProducts=[];
-let currentCategory="All deals";
-let page=1;
+let currentCategory="All deals",page=1;
 const pageSize=24;
 let favorites=loadJSON("drahim_favorites",[]);
 let cart=loadJSON("drahim_cart",{});
@@ -294,31 +207,23 @@ let theme=localStorage.getItem("drahim_theme")||"light";
 let view="home";
 
 function loadJSON(key,fallback){
- try{return JSON.parse(localStorage.getItem(key)||"null")??fallback}
- catch{return fallback}
+ try{return JSON.parse(localStorage.getItem(key)||"null")??fallback}catch{return fallback}
 }
 function saveJSON(key,value){
- try{localStorage.setItem(key,JSON.stringify(value))}
- catch{notify("Browser storage is unavailable; changes may not persist.")}
+ try{localStorage.setItem(key,JSON.stringify(value))}catch{notify("Browser storage is unavailable; changes may not persist.")}
 }
 function makeProducts(){
- let id=1;
- const products=[];
+ let id=1;const products=[];
  for(const category of Object.keys(catalog)){
   for(let i=0;i<80;i++){
    const entry=catalog[category][i%catalog[category].length];
    const variation=Math.floor(i/catalog[category].length)+1;
    const price=Math.round((20+((i*37+id*13)%480))*100)/100;
    products.push({
-    id,
-    title:variation===1?entry[0]:`${entry[0]} — Offer ${variation}`,
-    category,
-    description:`Sample ${category.toLowerCase()} listing. Verify the actual offer, availability and final price with the seller.`,
-    price,
-    oldPrice:Math.round(price*1.25*100)/100,
-    image:imageFor(category,i),
-    sellerUrl:realSites[category]||"",
-    demo:true
+    id,title:variation===1?entry[0]:`${entry[0]} — Offer ${variation}`,
+    category,description:`Sample ${category.toLowerCase()} listing. Verify availability, actual price and terms with the seller.`,
+    price,oldPrice:Math.round(price*1.25*100)/100,
+    image:imageFor(category,i,entry[1]),sellerUrl:realSites[category]||"",demo:true
    });
    id++;
   }
@@ -334,8 +239,7 @@ function externalButton(url,label="View real website"){
  return `<a class="btn" href="${safe(url)}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;text-decoration:none">${safe(label)} ↗</a>`;
 }
 function renderCategories(){
- document.getElementById("categories").innerHTML=categories.map(c=>`
- <button class="chip ${currentCategory===c.name?"active":""}" onclick="setCategory('${safe(c.name)}')">${c.icon} ${safe(c.name)}</button>`).join("");
+ document.getElementById("categories").innerHTML=categories.map(c=>`<button class="chip ${currentCategory===c.name?"active":""}" onclick="setCategory('${safe(c.name)}')">${c.icon} ${safe(c.name)}</button>`).join("");
 }
 function setCategory(name){
  currentCategory=name;page=1;view="home";
@@ -358,8 +262,7 @@ function getFilteredProducts(){
 }
 function renderProducts(){
  if(view!=="home")return;
- const list=getFilteredProducts();
- const pages=Math.max(1,Math.ceil(list.length/pageSize));
+ const list=getFilteredProducts(),pages=Math.max(1,Math.ceil(list.length/pageSize));
  page=Math.min(page,pages);
  const shown=list.slice((page-1)*pageSize,page*pageSize);
  const grid=document.getElementById("deals");
@@ -370,94 +273,47 @@ function renderProducts(){
  }
  grid.className="grid";
  grid.innerHTML=shown.map(p=>`
- <article class="card">
-  <div class="photo">
-   <img src="${safe(p.image)}" alt="${safe(p.category)} illustrative photo for ${safe(p.title)}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e5eee7/24583c?text=${encodeURIComponent(p.category)}'">
-   <button class="heart" aria-label="Save ${safe(p.title)}" onclick="toggleFavorite(${p.id})">${favorites.includes(p.id)?"♥":"♡"}</button>
-  </div>
-  <div class="cardbody">
-   <div class="category-label">${safe(p.category)}</div>
-   <h3>${safe(p.title)}</h3>
-   <p class="desc">${safe(p.description)}</p>
-   <div class="prices"><span class="price">${money(p.price)}</span><span class="old">${money(p.oldPrice)}</span></div>
-   <p><span class="demo">DEMO PRICE</span></p>
-   <div class="cardbuttons">
-    <button class="btn" onclick="showDetails(${p.id})">Details</button>
-    <button class="primary" onclick="addToCart(${p.id})">＋ Add to cart</button>
-    <div class="wide">${externalButton(p.sellerUrl)}</div>
-   </div>
-  </div>
- </article>`).join("");
- document.getElementById("pagination").innerHTML=`
- <button class="btn" ${page===1?"disabled":""} onclick="changePage(-1)">← Previous</button>
- <span style="margin:0 14px">Page ${page} of ${pages} · ${list.length} listings</span>
- <button class="btn" ${page===pages?"disabled":""} onclick="changePage(1)">Next →</button>`;
+ <article class="card"><div class="photo">
+ <img src="${safe(p.image)}" alt="${safe(p.category)} illustrative photo for ${safe(p.title)}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e5eee7/24583c?text=${encodeURIComponent(p.category)}'">
+ <button class="heart" aria-label="Save ${safe(p.title)}" onclick="toggleFavorite(${p.id})">${favorites.includes(p.id)?"♥":"♡"}</button></div>
+ <div class="cardbody"><div class="category-label">${safe(p.category)}</div><h3>${safe(p.title)}</h3>
+ <p class="desc">${safe(p.description)}</p><div class="prices"><span class="price">${money(p.price)}</span><span class="old">${money(p.oldPrice)}</span></div>
+ <p><span class="demo">DEMO PRICE</span></p>
+ <div class="cardbuttons"><button class="btn" onclick="showDetails(${p.id})">Details</button><button class="primary" onclick="addToCart(${p.id})">＋ Add to cart</button><div class="wide">${externalButton(p.sellerUrl)}</div></div></div></article>`).join("");
+ document.getElementById("pagination").innerHTML=`<button class="btn" ${page===1?"disabled":""} onclick="changePage(-1)">← Previous</button><span style="margin:0 14px">Page ${page} of ${pages} · ${list.length} listings</span><button class="btn" ${page===pages?"disabled":""} onclick="changePage(1)">Next →</button>`;
 }
-function changePage(amount){
- page+=amount;renderProducts();document.getElementById("deals").scrollIntoView({behavior:"smooth"});
-}
-function resetFilters(){
- document.getElementById("search").value="";
- document.getElementById("sort").value="featured";
- setCategory("All deals");
-}
+function changePage(amount){page+=amount;renderProducts();document.getElementById("deals").scrollIntoView({behavior:"smooth"})}
+function resetFilters(){document.getElementById("search").value="";document.getElementById("sort").value="featured";setCategory("All deals")}
 function persistCart(){saveJSON("drahim_cart",cart);updateCartCount()}
-function updateCartCount(){
- const count=Object.values(cart).reduce((sum,item)=>sum+(Number(item.qty)||0),0);
- document.getElementById("cartCount").textContent=count;
-}
+function updateCartCount(){document.getElementById("cartCount").textContent=Object.values(cart).reduce((sum,item)=>sum+(Number(item.qty)||0),0)}
 function addToCart(id){
  const p=allProducts.find(item=>item.id===id);if(!p)return;
  if(cart[id])cart[id].qty++;
  else cart[id]={id:p.id,title:p.title,price:p.price,image:p.image,qty:1,category:p.category,sellerUrl:p.sellerUrl};
  persistCart();notify("Added to cart: "+p.title);
 }
-function changeCartQty(id,amount){
- if(!cart[id])return;
- cart[id].qty+=amount;
- if(cart[id].qty<=0)delete cart[id];
- persistCart();showCart();
-}
+function changeCartQty(id,amount){if(!cart[id])return;cart[id].qty+=amount;if(cart[id].qty<=0)delete cart[id];persistCart();showCart()}
 function removeFromCart(id){delete cart[id];persistCart();showCart()}
 function showCart(){
  view="cart";document.getElementById("hero").classList.add("hidden");
  document.getElementById("heading").textContent="Your shopping cart";
- document.getElementById("categories").innerHTML="";
- document.getElementById("pagination").innerHTML="";
+ document.getElementById("categories").innerHTML="";document.getElementById("pagination").innerHTML="";
  const main=document.getElementById("deals");main.className="";
- const items=Object.values(cart);
- const total=items.reduce((sum,item)=>sum+item.price*item.qty,0);
- main.innerHTML=items.length?`
- <div class="cart-layout">
-  <section class="panel"><h2>Cart items (${items.reduce((n,i)=>n+i.qty,0)})</h2>
-  ${items.map(item=>`
-   <article class="cart-item">
-    <img src="${safe(item.image)}" alt="${safe(item.title)}" onerror="this.style.visibility='hidden'">
-    <div class="cart-item-info">
-     <h3>${safe(item.title)}</h3><div class="price">${money(item.price)}</div>
-     <div class="qty"><button onclick="changeCartQty(${item.id},-1)" aria-label="Decrease quantity">−</button><strong>${item.qty}</strong><button onclick="changeCartQty(${item.id},1)" aria-label="Increase quantity">+</button></div>
-     <button class="remove" onclick="removeFromCart(${item.id})">Remove item</button>
-     <p>${externalButton(item.sellerUrl,"Visit seller website")}</p>
-    </div><strong>${money(item.price*item.qty)}</strong>
-   </article>`).join("")}
-  </section>
-  <aside class="panel"><h2>Order summary</h2>
-   <div class="totalrow"><span>Subtotal</span><strong>${money(total)}</strong></div>
-   <div class="totalrow"><span>Delivery / booking fees</span><span>Not included</span></div>
-   <div class="totalrow grandtotal"><strong>Demo total</strong><strong>${money(total)}</strong></div>
-   <p class="trust">Demo total only. This cart does not reserve or purchase these listings.</p>
-   <button class="primary checkout" onclick="checkout()">Continue to checkout</button>
-   <button class="btn" style="width:100%;margin-top:10px" onclick="goHome()">Continue shopping</button>
-  </aside>
- </div>`:`<div class="empty"><div style="font-size:50px">🛒</div><h2>Your cart is empty</h2><p>Find a listing you like and add it to your cart.</p><button class="primary" onclick="goHome()">Explore deals</button></div>`;
+ const items=Object.values(cart),total=items.reduce((sum,item)=>sum+item.price*item.qty,0);
+ main.innerHTML=items.length?`<div class="cart-layout"><section class="panel"><h2>Cart items (${items.reduce((n,i)=>n+i.qty,0)})</h2>
+ ${items.map(item=>`<article class="cart-item"><img src="${safe(item.image)}" alt="${safe(item.title)}" onerror="this.style.visibility='hidden'"><div class="cart-item-info">
+ <h3>${safe(item.title)}</h3><div class="price">${money(item.price)}</div>
+ <div class="qty"><button onclick="changeCartQty(${item.id},-1)" aria-label="Decrease quantity">−</button><strong>${item.qty}</strong><button onclick="changeCartQty(${item.id},1)" aria-label="Increase quantity">+</button></div>
+ <button class="remove" onclick="removeFromCart(${item.id})">Remove item</button><p>${externalButton(item.sellerUrl,"Visit seller website")}</p></div><strong>${money(item.price*item.qty)}</strong></article>`).join("")}
+ </section><aside class="panel"><h2>Order summary</h2><div class="totalrow"><span>Subtotal</span><strong>${money(total)}</strong></div>
+ <div class="totalrow"><span>Delivery / booking fees</span><span>Not included</span></div><div class="totalrow grandtotal"><strong>Demo total</strong><strong>${money(total)}</strong></div>
+ <p class="trust">Demo total only. This cart does not reserve or purchase these listings.</p><button class="primary checkout" onclick="checkout()">Continue to checkout</button><button class="btn" style="width:100%;margin-top:10px" onclick="goHome()">Continue shopping</button></aside></div>`:
+ `<div class="empty"><div style="font-size:50px">🛒</div><h2>Your cart is empty</h2><p>Find a listing you like and add it to your cart.</p><button class="primary" onclick="goHome()">Explore deals</button></div>`;
  window.scrollTo({top:0,behavior:"smooth"});
 }
 function checkout(){
  if(!Object.keys(cart).length)return notify("Your cart is empty.");
- showModal(`<h2 id="modalTitle">Checkout isn't connected yet</h2>
- <p>Your cart uses demo listings and sample prices. The seller links open general websites, not confirmed pages for these specific offers.</p>
- <p>To take real orders, Drahim needs verified product/booking links, accurate prices, and a secure backend/payment provider.</p>
- <button class="primary" onclick="closeModal()">Got it</button>`);
+ showModal(`<h2 id="modalTitle">Checkout isn't connected yet</h2><p>Your cart uses demo listings and sample prices. Seller links open general websites, not confirmed pages for these specific offers.</p><p>Real orders require verified offer links, accurate prices and a secure backend/payment provider.</p><button class="primary" onclick="closeModal()">Got it</button>`);
 }
 function toggleFavorite(id){
  favorites=favorites.includes(id)?favorites.filter(item=>item!==id):[...favorites,id];
@@ -467,47 +323,30 @@ function toggleFavorite(id){
 function showFavorites(){
  view="favorites";document.getElementById("hero").classList.add("hidden");
  document.getElementById("heading").textContent="Saved deals";
- document.getElementById("categories").innerHTML="";
- document.getElementById("pagination").innerHTML="";
- const saved=allProducts.filter(p=>favorites.includes(p.id));
- const grid=document.getElementById("deals");grid.className="grid";
- grid.innerHTML=saved.length?saved.map(p=>`
- <article class="card"><div class="photo"><img src="${safe(p.image)}" alt="${safe(p.category)} illustrative photo" loading="lazy"></div>
- <div class="cardbody"><div class="category-label">${safe(p.category)}</div><h3>${safe(p.title)}</h3>
- <div class="price">${money(p.price)}</div><p><span class="demo">DEMO PRICE</span></p>
- <div class="cardbuttons"><button class="btn" onclick="toggleFavorite(${p.id})">♥ Unsave</button><button class="primary" onclick="addToCart(${p.id})">Add to cart</button><div class="wide">${externalButton(p.sellerUrl)}</div></div></div></article>`).join(""):`<div class="empty"><h2>No saved listings yet</h2><button class="primary" onclick="goHome()">Explore deals</button></div>`;
+ document.getElementById("categories").innerHTML="";document.getElementById("pagination").innerHTML="";
+ const saved=allProducts.filter(p=>favorites.includes(p.id)),grid=document.getElementById("deals");grid.className="grid";
+ grid.innerHTML=saved.length?saved.map(p=>`<article class="card"><div class="photo"><img src="${safe(p.image)}" alt="${safe(p.category)} illustrative photo" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e5eee7/24583c?text=${encodeURIComponent(p.category)}'"></div><div class="cardbody"><div class="category-label">${safe(p.category)}</div><h3>${safe(p.title)}</h3><div class="price">${money(p.price)}</div><p><span class="demo">DEMO PRICE</span></p><div class="cardbuttons"><button class="btn" onclick="toggleFavorite(${p.id})">♥ Unsave</button><button class="primary" onclick="addToCart(${p.id})">Add to cart</button><div class="wide">${externalButton(p.sellerUrl)}</div></div></div></article>`).join(""):`<div class="empty"><h2>No saved listings yet</h2><button class="primary" onclick="goHome()">Explore deals</button></div>`;
 }
 function showDetails(id){
  const p=allProducts.find(item=>item.id===id);if(!p)return;
- showModal(`<img src="${safe(p.image)}" alt="${safe(p.category)} illustrative photo" style="width:100%;max-height:230px;object-fit:cover;border-radius:12px">
- <p class="category-label">${safe(p.category)} · DEMO</p><h2 id="modalTitle">${safe(p.title)}</h2>
- <p>${safe(p.description)}</p><h2 class="price">${money(p.price)}</h2>
+ showModal(`<img src="${safe(p.image)}" alt="${safe(p.category)} illustrative photo" style="width:100%;max-height:230px;object-fit:cover;border-radius:12px" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e5eee7/24583c?text=${encodeURIComponent(p.category)}'">
+ <p class="category-label">${safe(p.category)} · DEMO</p><h2 id="modalTitle">${safe(p.title)}</h2><p>${safe(p.description)}</p><h2 class="price">${money(p.price)}</h2>
  <p class="trust">Sample price and illustrative photo. This listing has not been verified with a seller.</p>
- <button class="primary" style="width:100%" onclick="closeModal();addToCart(${p.id})">Add to cart</button>
- <div style="margin-top:8px">${externalButton(p.sellerUrl)}</div>
- <button class="btn" style="width:100%;margin-top:8px" onclick="closeModal()">Close</button>`);
+ <button class="primary" style="width:100%" onclick="closeModal();addToCart(${p.id})">Add to cart</button><div style="margin-top:8px">${externalButton(p.sellerUrl)}</div><button class="btn" style="width:100%;margin-top:8px" onclick="closeModal()">Close</button>`);
 }
 function showModal(html){document.getElementById("modal").innerHTML=html;document.getElementById("modalBackdrop").style.display="flex"}
 function closeModal(){document.getElementById("modalBackdrop").style.display="none"}
 function backdropClose(event){if(event.target.id==="modalBackdrop")closeModal()}
 function notify(message){
  const el=document.getElementById("toast");el.textContent=message;el.style.display="block";
- clearTimeout(window.drahimToastTimer);
- window.drahimToastTimer=setTimeout(()=>el.style.display="none",2400);
+ clearTimeout(window.drahimToastTimer);window.drahimToastTimer=setTimeout(()=>el.style.display="none",2400);
 }
-function toggleTheme(){
- theme=theme==="dark"?"light":"dark";
- document.body.classList.toggle("dark",theme==="dark");
- localStorage.setItem("drahim_theme",theme);
-}
+function toggleTheme(){theme=theme==="dark"?"light":"dark";document.body.classList.toggle("dark",theme==="dark");localStorage.setItem("drahim_theme",theme)}
 function goHome(){
  view="home";currentCategory="All deals";page=1;
- document.getElementById("hero").classList.remove("hidden");
- document.getElementById("search").value="";
- document.getElementById("sort").value="featured";
- renderCategories();renderProducts();
- document.getElementById("heading").textContent="Explore deals";
- window.scrollTo({top:0,behavior:"smooth"});
+ document.getElementById("hero").classList.remove("hidden");document.getElementById("search").value="";
+ document.getElementById("sort").value="featured";renderCategories();renderProducts();
+ document.getElementById("heading").textContent="Explore deals";window.scrollTo({top:0,behavior:"smooth"});
 }
 document.body.classList.toggle("dark",theme==="dark");
 renderCategories();renderProducts();updateCartCount();
